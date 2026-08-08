@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+:root {
+  /* Pashupati Brand Colors */
+  --color-navy: #0c1d32;
+  --color-gold: #ffd39f;
+
+  /* Backgrounds */
+  --color-white: #ffffff;
+  --color-off-white: #f8f7f4;
+
+  /* Typography */
+  --font-poppins: "Poppins", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-white);
+  color: var(--color-navy);
+  font-family: var(--font-poppins);
+}
+
+button,
+a,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
