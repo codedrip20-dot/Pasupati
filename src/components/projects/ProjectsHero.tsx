@@ -12,33 +12,52 @@ export default function ProjectsHero() {
       {/* =========================================================
           BACKGROUND
       ========================================================== */}
+
       <div className="absolute inset-0">
         <Image
           src="/assets/hero2.jpeg"
           alt="Pasupati Infrastructure construction project"
           fill
           priority
+          fetchPriority="high"
           sizes="100vw"
+          quality={70}
           className="object-cover object-[58%_center] sm:object-center"
         />
 
         {/* Overall cinematic treatment */}
-        <div className="absolute inset-0 bg-[#07100e]/25" />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-[#07100e]/25"
+        />
 
         {/* Stronger treatment behind typography */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#07100e]/95 via-[#07100e]/65 to-[#07100e]/15" />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-gradient-to-r from-[#07100e]/95 via-[#07100e]/65 to-[#07100e]/15"
+        />
 
         {/* Mobile readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#07100e] via-[#07100e]/25 to-transparent sm:hidden" />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-gradient-to-t from-[#07100e] via-[#07100e]/25 to-transparent sm:hidden"
+        />
 
         {/* Desktop bottom fade */}
-        <div className="absolute inset-x-0 bottom-0 hidden h-72 bg-gradient-to-t from-[#07100e] to-transparent sm:block" />
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 bottom-0 hidden h-72 bg-gradient-to-t from-[#07100e] to-transparent sm:block"
+        />
       </div>
 
       {/* =========================================================
-          SUBTLE ARCHITECTURAL GRID
+          ARCHITECTURAL GRID
       ========================================================== */}
-      <div className="pointer-events-none absolute inset-0 opacity-[0.08]">
+
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 opacity-[0.08]"
+      >
         <div className="mx-auto h-full max-w-7xl border-x border-white/40" />
 
         <div className="absolute inset-y-0 left-1/4 border-l border-white/20" />
@@ -49,9 +68,13 @@ export default function ProjectsHero() {
       {/* =========================================================
           TOP META
       ========================================================== */}
+
       <div className="absolute left-6 right-6 top-28 z-20 flex items-center justify-between sm:left-8 sm:right-8 sm:top-32 lg:left-12 lg:right-12">
         <div className="flex items-center gap-3">
-          <span className="h-px w-8 bg-[#e8bd73] sm:w-12" />
+          <span
+            aria-hidden="true"
+            className="h-px w-8 bg-[#e8bd73] sm:w-12"
+          />
 
           <span className="text-[9px] font-medium uppercase tracking-[0.3em] text-[#f0c982] sm:text-[10px]">
             Pasupati Infrastructure
@@ -66,6 +89,7 @@ export default function ProjectsHero() {
       {/* =========================================================
           MAIN CONTENT
       ========================================================== */}
+
       <div className="relative z-10 flex min-h-[92svh] items-end sm:min-h-screen">
         <div className="mx-auto w-full max-w-7xl px-6 pb-16 sm:px-8 sm:pb-24 lg:px-12 lg:pb-28">
           <motion.div
@@ -82,7 +106,7 @@ export default function ProjectsHero() {
               y: 0,
             }}
             transition={{
-              duration: 1,
+              duration: shouldReduceMotion ? 0 : 1,
               ease: [0.22, 1, 0.36, 1],
             }}
             className="max-w-5xl"
@@ -103,7 +127,7 @@ export default function ProjectsHero() {
               }}
               transition={{
                 delay: shouldReduceMotion ? 0 : 0.15,
-                duration: 0.7,
+                duration: shouldReduceMotion ? 0 : 0.7,
               }}
               className="mb-5 sm:mb-7"
             >
@@ -115,6 +139,7 @@ export default function ProjectsHero() {
             {/* =====================================================
                 HEADING
             ====================================================== */}
+
             <h1 className="max-w-5xl text-[3.5rem] font-medium leading-[0.88] tracking-[-0.065em] sm:text-6xl md:text-7xl lg:text-[7rem] xl:text-[7.5rem]">
               Building across
               <br />
@@ -127,8 +152,8 @@ export default function ProjectsHero() {
             {/* =====================================================
                 LOWER CONTENT
             ====================================================== */}
+
             <div className="mt-7 flex flex-col gap-8 sm:mt-9 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
-              {/* Description */}
               <p className="max-w-xl text-sm leading-7 text-white/70 sm:text-base sm:leading-8 lg:text-[17px]">
                 From roads and commercial developments to monasteries,
                 hospitals, hospitality and homes, our work spans the places
@@ -143,7 +168,10 @@ export default function ProjectsHero() {
                 >
                   <span>Explore our work</span>
 
-                  <span className="text-base transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
+                  <span
+                    aria-hidden="true"
+                    className="text-base transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+                  >
                     ↗
                   </span>
                 </Link>
@@ -154,7 +182,10 @@ export default function ProjectsHero() {
                 >
                   Start a conversation
 
-                  <span className="transition-transform duration-300 group-hover:translate-x-1">
+                  <span
+                    aria-hidden="true"
+                    className="transition-transform duration-300 group-hover:translate-x-1"
+                  >
                     →
                   </span>
                 </Link>
@@ -167,10 +198,14 @@ export default function ProjectsHero() {
       {/* =========================================================
           BOTTOM INFORMATION BAR
       ========================================================== */}
+
       <div className="absolute bottom-0 left-0 right-0 z-20 border-t border-white/10">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 sm:px-8 lg:px-12">
           <div className="flex items-center gap-3">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#e8bd73]" />
+            <span
+              aria-hidden="true"
+              className="h-1.5 w-1.5 rounded-full bg-[#e8bd73]"
+            />
 
             <span className="text-[8px] uppercase tracking-[0.28em] text-white/45 sm:text-[9px]">
               Construction · Infrastructure · Development
@@ -199,6 +234,7 @@ export default function ProjectsHero() {
                       ease: "easeInOut",
                     }
               }
+              aria-hidden="true"
               className="text-sm text-[#f0c982]"
             >
               ↓

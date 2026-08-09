@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { aboutData } from "@/src/data/about";
 
 export default function AboutPhilosophy() {
@@ -5,6 +7,10 @@ export default function AboutPhilosophy() {
     <section
       aria-labelledby="about-philosophy-title"
       className="relative isolate overflow-hidden bg-[#07111f]"
+      style={{
+        contentVisibility: "auto",
+        containIntrinsicSize: "1000px",
+      }}
     >
       {/* =========================================================
           BACKGROUND — PASUPATI PROJECT
@@ -12,34 +18,26 @@ export default function AboutPhilosophy() {
 
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-30 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url('/assets/hero.jpeg')",
-        }}
-      />
+        className="absolute inset-0 -z-30"
+      >
+        <Image
+          src="/assets/hero.jpeg"
+          alt=""
+          fill
+          loading="lazy"
+          sizes="100vw"
+          quality={55}
+          className="object-cover object-center"
+        />
+      </div>
 
-      {/* Deep navy image treatment */}
+      {/* Combined cinematic image treatment */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-20 bg-[#07111f]/65"
-      />
-
-      {/* Strong text readability */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 -z-20 bg-gradient-to-r from-[#07111f]/95 via-[#07111f]/78 to-[#07111f]/45"
-      />
-
-      {/* Top fade */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-x-0 top-0 -z-20 h-40 bg-gradient-to-b from-[#07111f]/85 to-transparent"
-      />
-
-      {/* Bottom fade */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-x-0 bottom-0 -z-20 h-56 bg-gradient-to-t from-[#07111f] via-[#07111f]/75 to-transparent"
+        className="
+          absolute inset-0 -z-20
+          bg-[linear-gradient(to_right,rgba(7,17,31,0.95),rgba(7,17,31,0.78),rgba(7,17,31,0.45)),linear-gradient(to_bottom,rgba(7,17,31,0.85),transparent_30%,rgba(7,17,31,0.75)_72%,rgba(7,17,31,1))]
+        "
       />
 
       {/* =========================================================
@@ -120,24 +118,38 @@ export default function AboutPhilosophy() {
 
           {/* Philosophy statement */}
           <div className="lg:col-span-6">
-            <div className="relative overflow-hidden rounded-[2rem] border border-white/15 bg-white/[0.075] p-7 shadow-2xl backdrop-blur-xl sm:p-9 lg:p-11">
+            <div className="relative overflow-hidden rounded-[2rem] border border-white/15 bg-white/[0.075] p-7 shadow-2xl backdrop-blur-[2px] sm:p-9 sm:backdrop-blur-xl lg:p-11">
               {/* Ambient gold glow */}
               <div
                 aria-hidden="true"
-                className="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-amber-300/[0.08] blur-3xl"
+                className="
+                  pointer-events-none
+                  absolute
+                  -right-24
+                  -top-24
+                  h-64
+                  w-64
+                  rounded-full
+                  bg-amber-300/[0.08]
+                  blur-[90px]
+                  sm:blur-3xl
+                "
               />
 
               {/* Decorative quotation mark */}
               <div
                 aria-hidden="true"
-                className="absolute right-7 top-3 select-none text-[110px] font-serif leading-none text-white/[0.045] sm:right-10"
+                className="pointer-events-none absolute right-7 top-3 select-none text-[110px] font-serif leading-none text-white/[0.045] sm:right-10"
               >
                 “
               </div>
 
               <div className="relative">
                 <div className="flex items-center gap-3">
-                  <span className="h-1.5 w-1.5 rounded-full bg-amber-300" />
+                  <span
+                    aria-hidden="true"
+                    className="h-1.5 w-1.5 rounded-full bg-amber-300"
+                  />
 
                   <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-amber-300">
                     Philosophy Statement
@@ -149,7 +161,10 @@ export default function AboutPhilosophy() {
                 </blockquote>
 
                 <div className="mt-10 flex items-center gap-4">
-                  <span className="h-px w-12 bg-amber-300/70" />
+                  <span
+                    aria-hidden="true"
+                    className="h-px w-12 bg-amber-300/70"
+                  />
 
                   <span className="text-[9px] font-medium uppercase tracking-[0.28em] text-white/40">
                     Pasupati Infrastructure
@@ -198,11 +213,14 @@ export default function AboutPhilosophy() {
 
         {/* =====================================================
             BOTTOM BRAND META
-        ====================================================== */}
+        ========================================================== */}
 
         <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3">
-            <span className="h-2 w-2 rounded-full bg-amber-300" />
+            <span
+              aria-hidden="true"
+              className="h-2 w-2 rounded-full bg-amber-300"
+            />
 
             <span className="text-[9px] font-medium uppercase tracking-[0.28em] text-white/40 sm:text-[10px]">
               Heritage · Progress · Trust

@@ -1,10 +1,14 @@
-import { aboutData } from "@/src/data/about";
+import Image from "next/image";
 
 export default function HeritageSection() {
   return (
     <section
       aria-labelledby="heritage-section-title"
       className="relative isolate overflow-hidden bg-[#07111f]"
+      style={{
+        contentVisibility: "auto",
+        containIntrinsicSize: "1200px",
+      }}
     >
       {/* =========================================================
           BACKGROUND
@@ -12,34 +16,26 @@ export default function HeritageSection() {
 
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-30 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url('/assets/gallery/img21.jpeg')",
-        }}
-      />
+        className="absolute inset-0 -z-30"
+      >
+        <Image
+          src="/assets/gallery/img21.jpeg"
+          alt=""
+          fill
+          loading="lazy"
+          sizes="100vw"
+          quality={50}
+          className="object-cover object-center"
+        />
+      </div>
 
-      {/* Deep cinematic treatment */}
+      {/* Combined cinematic treatment */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-20 bg-[#07111f]/65"
-      />
-
-      {/* Strong readability toward content */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 -z-20 bg-gradient-to-r from-[#07111f]/98 via-[#07111f]/80 to-[#07111f]/35"
-      />
-
-      {/* Top fade */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-x-0 top-0 -z-20 h-52 bg-gradient-to-b from-[#07111f] to-transparent"
-      />
-
-      {/* Bottom fade */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-x-0 bottom-0 -z-20 h-72 bg-gradient-to-t from-[#07111f] via-[#07111f]/85 to-transparent"
+        className="
+          absolute inset-0 -z-20
+          bg-[linear-gradient(to_right,rgba(7,17,31,0.98),rgba(7,17,31,0.80),rgba(7,17,31,0.35)),linear-gradient(to_bottom,rgba(7,17,31,1),transparent_30%,rgba(7,17,31,0.85)_76%,rgba(7,17,31,1))]
+        "
       />
 
       {/* =========================================================
@@ -48,12 +44,38 @@ export default function HeritageSection() {
 
       <div
         aria-hidden="true"
-        className="absolute -right-40 top-1/4 -z-10 h-[500px] w-[500px] rounded-full bg-amber-300/[0.06] blur-[140px]"
+        className="
+          pointer-events-none
+          absolute
+          -right-40
+          top-1/4
+          -z-10
+          hidden
+          h-[500px]
+          w-[500px]
+          rounded-full
+          bg-amber-300/[0.06]
+          blur-[140px]
+          sm:block
+        "
       />
 
       <div
         aria-hidden="true"
-        className="absolute -left-40 bottom-1/4 -z-10 h-[450px] w-[450px] rounded-full bg-blue-500/[0.06] blur-[140px]"
+        className="
+          pointer-events-none
+          absolute
+          -left-40
+          bottom-1/4
+          -z-10
+          hidden
+          h-[450px]
+          w-[450px]
+          rounded-full
+          bg-blue-500/[0.06]
+          blur-[140px]
+          sm:block
+        "
       />
 
       {/* =========================================================
@@ -123,11 +145,24 @@ export default function HeritageSection() {
             {/* Image */}
             <div
               aria-hidden="true"
-              className="absolute inset-0 bg-cover bg-center transition-transform duration-[1400ms] hover:scale-[1.025]"
-              style={{
-                backgroundImage: "url('/assets/gallery/img21.jpeg')",
-              }}
-            />
+              className="absolute inset-0"
+            >
+              <Image
+                src="/assets/gallery/img21.jpeg"
+                alt=""
+                fill
+                loading="lazy"
+                sizes="(min-width: 1024px) 58vw, 100vw"
+                quality={55}
+                className="
+                  object-cover
+                  object-center
+                  transition-transform
+                  duration-[1400ms]
+                  hover:scale-[1.025]
+                "
+              />
+            </div>
 
             {/* Image overlay */}
             <div
@@ -155,7 +190,19 @@ export default function HeritageSection() {
 
               <div
                 aria-hidden="true"
-                className="hidden h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/[0.05] backdrop-blur-md sm:flex"
+                className="
+                  hidden
+                  h-12
+                  w-12
+                  items-center
+                  justify-center
+                  rounded-full
+                  border
+                  border-white/15
+                  bg-white/[0.05]
+                  sm:flex
+                  sm:backdrop-blur-md
+                "
               >
                 <span className="text-[10px] font-medium tracking-[0.15em] text-white/50">
                   01
@@ -168,17 +215,44 @@ export default function HeritageSection() {
               TEXT PANEL
           ==================================================== */}
 
-          <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#07111f]/75 p-7 backdrop-blur-xl sm:p-9 lg:col-span-5 lg:p-10">
-            {/* Decorative glow */}
+          <div
+            className="
+              relative
+              overflow-hidden
+              rounded-[2rem]
+              border
+              border-white/10
+              bg-[#07111f]/75
+              p-7
+              backdrop-blur-[1px]
+              sm:p-9
+              sm:backdrop-blur-md
+              lg:col-span-5
+              lg:p-10
+            "
+          >
+            {/* Decorative glow — desktop/tablet only */}
             <div
               aria-hidden="true"
-              className="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-amber-300/[0.06] blur-3xl"
+              className="
+                pointer-events-none
+                absolute
+                -right-24
+                -top-24
+                hidden
+                h-64
+                w-64
+                rounded-full
+                bg-amber-300/[0.06]
+                blur-[90px]
+                sm:block
+              "
             />
 
             {/* Decorative corner */}
             <div
               aria-hidden="true"
-              className="absolute right-0 top-0 h-20 w-20 overflow-hidden"
+              className="pointer-events-none absolute right-0 top-0 h-20 w-20 overflow-hidden"
             >
               <div className="absolute right-[-30px] top-[-30px] h-20 w-20 rounded-full border border-amber-300/15" />
             </div>
@@ -216,7 +290,10 @@ export default function HeritageSection() {
                 </p>
 
                 <div className="mt-5 flex items-center gap-4">
-                  <span className="h-px w-10 bg-amber-300" />
+                  <span
+                    aria-hidden="true"
+                    className="h-px w-10 bg-amber-300"
+                  />
 
                   <span className="text-sm font-medium tracking-tight text-white">
                     Preserve. Build. Evolve.
@@ -265,7 +342,10 @@ export default function HeritageSection() {
 
         <div className="mt-14 flex flex-col gap-5 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3">
-            <span className="h-2 w-2 rounded-full bg-amber-300 shadow-[0_0_14px_rgba(252,211,77,0.4)]" />
+            <span
+              aria-hidden="true"
+              className="h-2 w-2 rounded-full bg-amber-300 shadow-[0_0_14px_rgba(252,211,77,0.4)]"
+            />
 
             <span className="text-[9px] font-medium uppercase tracking-[0.28em] text-white/40 sm:text-[10px]">
               Pasupati Infrastructure

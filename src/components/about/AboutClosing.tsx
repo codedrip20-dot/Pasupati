@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { aboutData } from "@/src/data/about";
 
 export default function AboutClosing() {
@@ -5,6 +7,10 @@ export default function AboutClosing() {
     <section
       aria-labelledby="about-closing-title"
       className="relative isolate overflow-hidden bg-[#07111f]"
+      style={{
+        contentVisibility: "auto",
+        containIntrinsicSize: "1100px",
+      }}
     >
       {/* =========================================================
           BACKGROUND
@@ -12,34 +18,26 @@ export default function AboutClosing() {
 
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-30 bg-cover bg-center"
-        style={{
-          backgroundImage: "url('/assets/gallery/img2.jpeg')",
-        }}
-      />
+        className="absolute inset-0 -z-30"
+      >
+        <Image
+          src="/assets/gallery/img2.jpeg"
+          alt=""
+          fill
+          loading="lazy"
+          sizes="100vw"
+          quality={60}
+          className="object-cover object-center"
+        />
+      </div>
 
-      {/* Cinematic image treatment */}
+      {/* Combined cinematic image treatment */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-20 bg-[#07111f]/65"
-      />
-
-      {/* Strong left-side readability */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 -z-20 bg-gradient-to-r from-[#07111f]/98 via-[#07111f]/80 to-[#07111f]/45"
-      />
-
-      {/* Bottom depth */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-x-0 bottom-0 -z-20 h-80 bg-gradient-to-t from-[#07111f] via-[#07111f]/80 to-transparent"
-      />
-
-      {/* Top transition */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-x-0 top-0 -z-20 h-44 bg-gradient-to-b from-[#07111f] to-transparent"
+        className="
+          absolute inset-0 -z-20
+          bg-[linear-gradient(to_right,rgba(7,17,31,0.98),rgba(7,17,31,0.80),rgba(7,17,31,0.45)),linear-gradient(to_bottom,rgba(7,17,31,1),transparent_28%,rgba(7,17,31,0.8)_78%,rgba(7,17,31,1))]
+        "
       />
 
       {/* =========================================================
@@ -48,7 +46,19 @@ export default function AboutClosing() {
 
       <div
         aria-hidden="true"
-        className="absolute -right-40 top-1/4 -z-10 h-[420px] w-[420px] rounded-full bg-amber-300/[0.045] blur-[130px]"
+        className="
+          pointer-events-none
+          absolute
+          -right-40
+          top-1/4
+          -z-10
+          h-[420px]
+          w-[420px]
+          rounded-full
+          bg-amber-300/[0.045]
+          blur-[95px]
+          sm:blur-[130px]
+        "
       />
 
       {/* =========================================================
@@ -151,7 +161,10 @@ export default function AboutClosing() {
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
             {/* Brand */}
             <div className="flex items-center gap-3">
-              <span className="h-2 w-2 rounded-full bg-amber-300 shadow-[0_0_14px_rgba(252,211,77,0.4)]" />
+              <span
+                aria-hidden="true"
+                className="h-2 w-2 rounded-full bg-amber-300 shadow-[0_0_14px_rgba(252,211,77,0.4)]"
+              />
 
               <span className="text-[9px] font-semibold uppercase tracking-[0.3em] text-white/45 sm:text-[10px]">
                 Pasupati Infrastructure

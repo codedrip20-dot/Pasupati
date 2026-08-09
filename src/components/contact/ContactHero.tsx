@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function ContactHero() {
@@ -13,34 +14,50 @@ export default function ContactHero() {
 
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-30 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url('/assets/gallery/img15.jpeg')",
-        }}
-      />
+        className="absolute inset-0 -z-30"
+      >
+        <Image
+          src="/assets/gallery/img15.jpeg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          quality={55}
+          className="object-cover object-center"
+        />
+      </div>
 
-      {/* Soft overall treatment */}
+      {/* =========================================================
+          IMAGE TREATMENT
+      ========================================================== */}
+
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-20 bg-[#07111f]/20"
+        className="
+          absolute inset-0 -z-20
+          bg-[linear-gradient(to_right,rgba(7,17,31,0.80),rgba(7,17,31,0.48),rgba(7,17,31,0.08))]
+        "
       />
 
-      {/* Left-side readability */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-20 bg-gradient-to-r from-[#07111f]/75 via-[#07111f]/45 to-transparent"
+        className="
+          absolute inset-x-0 top-0 -z-20 h-40
+          bg-gradient-to-b
+          from-[#07111f]/55
+          to-transparent
+        "
       />
 
-      {/* Top atmospheric fade */}
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 top-0 -z-20 h-40 bg-gradient-to-b from-[#07111f]/50 to-transparent"
-      />
-
-      {/* Bottom transition */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-x-0 bottom-0 -z-20 h-48 bg-gradient-to-t from-[#07111f]/85 via-[#07111f]/45 to-transparent"
+        className="
+          absolute inset-x-0 bottom-0 -z-20 h-48
+          bg-gradient-to-t
+          from-[#07111f]/90
+          via-[#07111f]/50
+          to-transparent
+        "
       />
 
       {/* =========================================================
@@ -49,7 +66,7 @@ export default function ContactHero() {
 
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 opacity-[0.045]"
+        className="pointer-events-none absolute inset-0 -z-10 opacity-[0.045]"
       >
         <div className="mx-auto h-full max-w-7xl border-x border-white/40" />
 
@@ -126,7 +143,32 @@ export default function ContactHero() {
 
                 <Link
                   href="#our-locations"
-                  className="group inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/[0.08] px-6 py-3.5 text-sm font-medium text-white backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-white/40 hover:bg-white/[0.14] focus:outline-none focus:ring-2 focus:ring-white/40 focus:ring-offset-2 focus:ring-offset-[#07111f]"
+                  className="
+                    group
+                    inline-flex
+                    items-center
+                    gap-2
+                    rounded-full
+                    border
+                    border-white/25
+                    bg-white/[0.08]
+                    px-6
+                    py-3.5
+                    text-sm
+                    font-medium
+                    text-white
+                    transition-all
+                    duration-300
+                    hover:-translate-y-0.5
+                    hover:border-white/40
+                    hover:bg-white/[0.14]
+                    focus:outline-none
+                    focus:ring-2
+                    focus:ring-white/40
+                    focus:ring-offset-2
+                    focus:ring-offset-[#07111f]
+                    sm:backdrop-blur-md
+                  "
                 >
                   Our locations
 
@@ -145,11 +187,24 @@ export default function ContactHero() {
             ====================================================== */}
 
             <div className="hidden lg:block">
-              <div className="relative overflow-hidden rounded-2xl border border-white/15 bg-[#0b1728]/55 p-6 shadow-2xl shadow-black/20 backdrop-blur-xl">
+              <div
+                className="
+                  relative
+                  overflow-hidden
+                  rounded-2xl
+                  border
+                  border-white/15
+                  bg-[#0b1728]/55
+                  p-6
+                  shadow-2xl
+                  shadow-black/20
+                  backdrop-blur-md
+                "
+              >
                 {/* Gold glow */}
                 <div
                   aria-hidden="true"
-                  className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-amber-300/10 blur-3xl"
+                  className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-amber-300/10 blur-[70px]"
                 />
 
                 <div className="relative">
@@ -165,7 +220,10 @@ export default function ContactHero() {
                   </p>
 
                   <div className="mt-6 flex items-center gap-2">
-                    <span className="h-2 w-2 rounded-full bg-emerald-400" />
+                    <span
+                      aria-hidden="true"
+                      className="h-2 w-2 rounded-full bg-emerald-400"
+                    />
 
                     <span className="text-xs text-white/55">
                       Available Monday – Saturday
@@ -183,7 +241,10 @@ export default function ContactHero() {
             </span>
 
             <div className="hidden items-center gap-3 sm:flex">
-              <span className="h-px w-8 bg-white/20" />
+              <span
+                aria-hidden="true"
+                className="h-px w-8 bg-white/20"
+              />
 
               <span className="text-[10px] uppercase tracking-[0.25em] text-white/40">
                 Get in touch

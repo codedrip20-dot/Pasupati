@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { aboutData } from "@/src/data/about";
 
 export default function AboutHero() {
@@ -8,38 +10,33 @@ export default function AboutHero() {
     >
       {/* =========================================================
           BACKGROUND — PASUPATI ENVELOPE
+
+          This is the primary visual on the About page,
+          so it is intentionally loaded eagerly.
       ========================================================== */}
 
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-30 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url('/assets/pasupatienvlope.png')",
-        }}
-      />
+        className="absolute inset-0 -z-30"
+      >
+        <Image
+          src="/assets/pasupatienvlope.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          quality={70}
+          className="object-cover object-center"
+        />
+      </div>
 
-      {/* Soft navy wash */}
+      {/* Combined cinematic readability treatment */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-20 bg-[#07111f]/45"
-      />
-
-      {/* Left readability */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 -z-20 bg-gradient-to-r from-[#07111f]/95 via-[#07111f]/72 to-[#07111f]/25"
-      />
-
-      {/* Top depth */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-x-0 top-0 -z-20 h-52 bg-gradient-to-b from-[#07111f]/75 to-transparent"
-      />
-
-      {/* Bottom depth */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-x-0 bottom-0 -z-20 h-64 bg-gradient-to-t from-[#07111f] via-[#07111f]/75 to-transparent"
+        className="
+          absolute inset-0 -z-20
+          bg-[linear-gradient(to_right,rgba(7,17,31,0.95),rgba(7,17,31,0.72),rgba(7,17,31,0.25)),linear-gradient(to_bottom,rgba(7,17,31,0.75),transparent_30%,rgba(7,17,31,0.75)_78%,rgba(7,17,31,1))]
+        "
       />
 
       {/* =========================================================

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { aboutData } from "@/src/data/about";
 
 export default function CoreValues() {
@@ -5,6 +7,10 @@ export default function CoreValues() {
     <section
       aria-labelledby="core-values-title"
       className="relative isolate overflow-hidden bg-[#07111f]"
+      style={{
+        contentVisibility: "auto",
+        containIntrinsicSize: "1100px",
+      }}
     >
       {/* =========================================================
           BACKGROUND
@@ -12,34 +18,26 @@ export default function CoreValues() {
 
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-30 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url('/assets/hero2.jpeg')",
-        }}
-      />
+        className="absolute inset-0 -z-30"
+      >
+        <Image
+          src="/assets/hero2.jpeg"
+          alt=""
+          fill
+          loading="lazy"
+          sizes="100vw"
+          quality={55}
+          className="object-cover object-center"
+        />
+      </div>
 
-      {/* Deep navy cinematic treatment */}
+      {/* Combined cinematic treatment */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-20 bg-[#07111f]/75"
-      />
-
-      {/* Left-to-right readability */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 -z-20 bg-gradient-to-r from-[#07111f]/98 via-[#07111f]/88 to-[#07111f]/55"
-      />
-
-      {/* Top fade */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-x-0 top-0 -z-20 h-48 bg-gradient-to-b from-[#07111f] to-transparent"
-      />
-
-      {/* Bottom fade */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-x-0 bottom-0 -z-20 h-72 bg-gradient-to-t from-[#07111f] via-[#07111f]/85 to-transparent"
+        className="
+          absolute inset-0 -z-20
+          bg-[linear-gradient(to_right,rgba(7,17,31,0.98),rgba(7,17,31,0.88),rgba(7,17,31,0.55)),linear-gradient(to_bottom,rgba(7,17,31,1),transparent_30%,rgba(7,17,31,0.85)_76%,rgba(7,17,31,1))]
+        "
       />
 
       {/* =========================================================
@@ -53,9 +51,7 @@ export default function CoreValues() {
         <div className="mx-auto h-full max-w-7xl border-x border-white/40" />
 
         <div className="absolute inset-y-0 left-1/4 hidden w-px bg-white/30 lg:block" />
-
         <div className="absolute inset-y-0 left-1/2 hidden w-px bg-white/30 lg:block" />
-
         <div className="absolute inset-y-0 left-3/4 hidden w-px bg-white/30 lg:block" />
 
         <div className="absolute left-0 right-0 top-1/2 h-px bg-white/20" />
@@ -121,7 +117,6 @@ export default function CoreValues() {
         ====================================================== */}
 
         <div className="mt-16 sm:mt-20">
-          {/* Section label */}
           <div className="mb-5 flex items-center justify-between">
             <span className="text-[9px] font-semibold uppercase tracking-[0.3em] text-white/35">
               What we stand for
@@ -133,7 +128,16 @@ export default function CoreValues() {
           </div>
 
           {/* Values grid */}
-          <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-[#07111f]/45 backdrop-blur-md">
+          <div
+            className="
+              overflow-hidden
+              rounded-[2rem]
+              border border-white/10
+              bg-[#07111f]/45
+              backdrop-blur-[1px]
+              sm:backdrop-blur-md
+            "
+          >
             {aboutData.values.map((value, index) => {
               const number = String(index + 1).padStart(2, "0");
 
@@ -145,13 +149,36 @@ export default function CoreValues() {
                   {/* Hover atmosphere */}
                   <div
                     aria-hidden="true"
-                    className="absolute inset-0 bg-gradient-to-r from-amber-300/[0.045] via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                    className="
+                      pointer-events-none
+                      absolute inset-0
+                      bg-gradient-to-r
+                      from-amber-300/[0.045]
+                      via-transparent
+                      to-transparent
+                      opacity-0
+                      transition-opacity
+                      duration-500
+                      group-hover:opacity-100
+                    "
                   />
 
                   {/* Moving gold line */}
                   <div
                     aria-hidden="true"
-                    className="absolute bottom-0 left-0 top-0 w-px bg-amber-300 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                    className="
+                      pointer-events-none
+                      absolute
+                      bottom-0
+                      left-0
+                      top-0
+                      w-px
+                      bg-amber-300
+                      opacity-0
+                      transition-opacity
+                      duration-500
+                      group-hover:opacity-100
+                    "
                   />
 
                   <div className="relative grid gap-6 px-6 py-7 sm:grid-cols-[90px_1fr_auto] sm:items-center sm:px-8 sm:py-9 lg:px-10">
@@ -161,7 +188,10 @@ export default function CoreValues() {
                         {number}
                       </span>
 
-                      <span className="h-px w-8 bg-white/15 sm:mt-4 sm:block" />
+                      <span
+                        aria-hidden="true"
+                        className="h-px w-8 bg-white/15 sm:mt-4 sm:block"
+                      />
                     </div>
 
                     {/* Value title + description */}
@@ -177,7 +207,19 @@ export default function CoreValues() {
 
                     {/* Right marker */}
                     <div className="hidden sm:flex sm:items-center sm:justify-end">
-                      <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-white/25 transition-all duration-500 group-hover:border-amber-300/40 group-hover:bg-amber-300/10 group-hover:text-amber-300">
+                      <span
+                        className="
+                          flex h-9 w-9 items-center justify-center
+                          rounded-full
+                          border border-white/10
+                          text-white/25
+                          transition-all
+                          duration-500
+                          group-hover:border-amber-300/40
+                          group-hover:bg-amber-300/10
+                          group-hover:text-amber-300
+                        "
+                      >
                         <span className="h-1.5 w-1.5 rounded-full bg-current" />
                       </span>
                     </div>
@@ -194,7 +236,6 @@ export default function CoreValues() {
 
         <div className="mt-16 border-t border-white/10 pt-10 sm:mt-20">
           <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
-            {/* Statement */}
             <div className="lg:col-span-8">
               <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-amber-300">
                 Our standard
@@ -209,7 +250,6 @@ export default function CoreValues() {
               </p>
             </div>
 
-            {/* Supporting copy */}
             <div className="lg:col-span-4">
               <p className="max-w-sm border-l border-amber-300/50 pl-5 text-sm leading-7 text-white/50">
                 We believe lasting infrastructure is built not only with
@@ -226,7 +266,10 @@ export default function CoreValues() {
 
         <div className="mt-14 flex flex-col gap-5 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3">
-            <span className="h-2 w-2 rounded-full bg-amber-300 shadow-[0_0_12px_rgba(252,211,77,0.45)]" />
+            <span
+              aria-hidden="true"
+              className="h-2 w-2 rounded-full bg-amber-300 shadow-[0_0_12px_rgba(252,211,77,0.45)]"
+            />
 
             <span className="text-[9px] font-medium uppercase tracking-[0.28em] text-white/40 sm:text-[10px]">
               Pasupati Infrastructure
@@ -261,7 +304,7 @@ export default function CoreValues() {
         aria-hidden="true"
         className="relative h-10 overflow-hidden bg-[#07111f]"
       >
-        <div className="absolute inset-x-0 bottom-[-1px] h-12 bg-white [clip-path:polygon(0_65%,12%_35%,24%_72%,38%_30%,52%_62%,68%_25%,82%_58%,100%_15%,100%_100%,0_100%)]" />
+        <div className="absolute inset-x-0 bottom-[-1px] h-12 bg-white [clip-path:polygon(0_65%,12%_35%,24%_72%,38%_30%,52%_62%,68%_25%,82%_58%,100%_15%,100%_100%,0 100%)]" />
       </div>
     </section>
   );

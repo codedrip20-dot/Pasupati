@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { contactData } from "@/src/data/Contact";
 
 function MailIcon() {
@@ -13,7 +14,6 @@ function MailIcon() {
         stroke="currentColor"
         strokeWidth="1.5"
       />
-
       <path
         d="m4.5 6 6.26 4.58a2.1 2.1 0 0 0 2.48 0L19.5 6"
         stroke="currentColor"
@@ -59,7 +59,6 @@ function ClockIcon() {
         stroke="currentColor"
         strokeWidth="1.5"
       />
-
       <path
         d="M12 7.5v4.75l3 1.75"
         stroke="currentColor"
@@ -110,6 +109,9 @@ function CardTopline() {
   );
 }
 
+const cardClass =
+  "group relative overflow-hidden rounded-[26px] border border-white/10 bg-[#0b1728]/95 p-7 shadow-2xl shadow-black/30 sm:p-8 lg:p-10";
+
 export default function ContactInfo() {
   const [primaryPhone, secondaryPhone] = contactData.phones;
 
@@ -118,6 +120,10 @@ export default function ContactInfo() {
       id="contact-information"
       aria-labelledby="contact-information-title"
       className="relative isolate overflow-hidden bg-[#07111f] py-24 sm:py-28 lg:py-36"
+      style={{
+        contentVisibility: "auto",
+        containIntrinsicSize: "1200px",
+      }}
     >
       {/* =========================================================
           BACKGROUND
@@ -125,26 +131,29 @@ export default function ContactInfo() {
 
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-30 bg-cover bg-center"
-        style={{
-          backgroundImage: "url('/assets/gallery/img20.jpeg')",
-        }}
-      />
+        className="absolute inset-0 -z-30"
+      >
+        <Image
+          src="/assets/gallery/img20.jpeg"
+          alt=""
+          fill
+          loading="lazy"
+          sizes="100vw"
+          quality={50}
+          className="object-cover object-center"
+        />
+      </div>
 
-      {/* Dark image treatment */}
+      {/* Combined image treatment */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-20 bg-[#07111f]/78"
-      />
-
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 -z-20 bg-gradient-to-b from-[#07111f]/92 via-[#07111f]/70 to-[#07111f]/96"
-      />
-
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 -z-20 bg-gradient-to-r from-[#07111f]/90 via-transparent to-[#07111f]/90"
+        className="
+          absolute inset-0 -z-20
+          bg-[linear-gradient(to_bottom,rgba(7,17,31,0.94),rgba(7,17,31,0.72),rgba(7,17,31,0.97))]
+          before:absolute
+          before:inset-0
+          before:bg-[linear-gradient(to_right,rgba(7,17,31,0.90),rgba(7,17,31,0.35),rgba(7,17,31,0.90))]
+        "
       />
 
       {/* =========================================================
@@ -153,7 +162,7 @@ export default function ContactInfo() {
 
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 opacity-[0.035]"
+        className="pointer-events-none absolute inset-0 -z-10 opacity-[0.035]"
       >
         <div className="mx-auto h-full max-w-7xl border-x border-white/50" />
 
@@ -167,7 +176,19 @@ export default function ContactInfo() {
       {/* Ambient gold */}
       <div
         aria-hidden="true"
-        className="absolute -left-40 top-1/3 -z-10 h-[420px] w-[420px] rounded-full bg-amber-300/[0.025] blur-[130px]"
+        className="
+          pointer-events-none
+          absolute
+          -left-40
+          top-1/3
+          -z-10
+          h-[420px]
+          w-[420px]
+          rounded-full
+          bg-amber-300/[0.025]
+          blur-[90px]
+          sm:blur-[110px]
+        "
       />
 
       {/* =========================================================
@@ -215,17 +236,16 @@ export default function ContactInfo() {
               EMAIL
           ====================================================== */}
 
-          <article className="group relative overflow-hidden rounded-[26px] border border-white/10 bg-[#0b1728]/95 p-7 shadow-2xl shadow-black/30 sm:p-8 lg:col-span-7 lg:p-10">
+          <article className={`${cardClass} lg:col-span-7`}>
             <CardTopline />
             <CornerDecoration />
 
             <div
               aria-hidden="true"
-              className="absolute bottom-[-100px] right-[-80px] h-64 w-64 rounded-full bg-amber-300/[0.035] blur-3xl"
+              className="pointer-events-none absolute bottom-[-100px] right-[-80px] h-64 w-64 rounded-full bg-amber-300/[0.035] blur-[70px]"
             />
 
             <div className="relative flex h-full flex-col justify-between">
-              {/* Top */}
               <div>
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-amber-300/20 bg-amber-300/10 text-amber-300">
                   <MailIcon />
@@ -239,10 +259,6 @@ export default function ContactInfo() {
                   Write to us.
                 </h3>
 
-                {/* =================================================
-                    IMPORTANT EMAIL CONTAINER
-                ================================================== */}
-
                 <a
                   href={`mailto:${contactData.email}`}
                   className="group/email mt-7 flex w-full items-center justify-between gap-4 rounded-2xl border border-white/10 bg-[#050d18] px-5 py-4 shadow-inner shadow-black/20 transition-all duration-300 hover:border-amber-300/30 hover:bg-[#071321]"
@@ -251,13 +267,12 @@ export default function ContactInfo() {
                     {contactData.email}
                   </span>
 
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-amber-300/20 bg-amber-300/10 text-amber-300 transition-all duration-300 group-hover/email:border-amber-300/40 group-hover/email:bg-amber-300/20 group-hover/email:translate-x-0.5 group-hover/email:-translate-y-0.5">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-amber-300/20 bg-amber-300/10 text-amber-300 transition-all duration-300 group-hover/email:translate-x-0.5 group-hover/email:-translate-y-0.5 group-hover/email:border-amber-300/40 group-hover/email:bg-amber-300/20">
                     <ArrowIcon />
                   </span>
                 </a>
               </div>
 
-              {/* Bottom metadata */}
               <div className="mt-12 flex items-center justify-between border-t border-white/10 pt-5">
                 <span className="text-[9px] font-medium uppercase tracking-[0.22em] text-white/40">
                   General enquiries
@@ -274,7 +289,7 @@ export default function ContactInfo() {
               PHONE
           ====================================================== */}
 
-          <article className="group relative overflow-hidden rounded-[26px] border border-white/10 bg-[#0b1728]/95 p-7 shadow-2xl shadow-black/30 sm:p-8 lg:col-span-5 lg:p-10">
+          <article className={`${cardClass} lg:col-span-5`}>
             <CardTopline />
             <CornerDecoration />
 
@@ -292,31 +307,21 @@ export default function ContactInfo() {
               </h3>
 
               <div className="mt-7 space-y-3">
-                <a
-                  href={`tel:${primaryPhone.replace(/\s/g, "")}`}
-                  className="group/phone flex min-h-[56px] items-center justify-between gap-4 rounded-xl border border-white/10 bg-[#111f32] px-4 py-3.5 transition-all duration-300 hover:border-amber-300/30 hover:bg-[#14243a]"
-                >
-                  <span className="text-sm font-semibold tracking-wide text-white sm:text-base">
-                    {primaryPhone}
-                  </span>
+                {[primaryPhone, secondaryPhone].map((phone) => (
+                  <a
+                    key={phone}
+                    href={`tel:${phone.replace(/\s/g, "")}`}
+                    className="group/phone flex min-h-[56px] items-center justify-between gap-4 rounded-xl border border-white/10 bg-[#111f32] px-4 py-3.5 transition-all duration-300 hover:border-amber-300/30 hover:bg-[#14243a]"
+                  >
+                    <span className="text-sm font-semibold tracking-wide text-white sm:text-base">
+                      {phone}
+                    </span>
 
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-white/40 transition-all duration-300 group-hover/phone:text-amber-300 group-hover/phone:translate-x-0.5 group-hover/phone:-translate-y-0.5">
-                    <ArrowIcon />
-                  </span>
-                </a>
-
-                <a
-                  href={`tel:${secondaryPhone.replace(/\s/g, "")}`}
-                  className="group/phone flex min-h-[56px] items-center justify-between gap-4 rounded-xl border border-white/10 bg-[#111f32] px-4 py-3.5 transition-all duration-300 hover:border-amber-300/30 hover:bg-[#14243a]"
-                >
-                  <span className="text-sm font-semibold tracking-wide text-white sm:text-base">
-                    {secondaryPhone}
-                  </span>
-
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-white/40 transition-all duration-300 group-hover/phone:text-amber-300 group-hover/phone:translate-x-0.5 group-hover/phone:-translate-y-0.5">
-                    <ArrowIcon />
-                  </span>
-                </a>
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-white/40 transition-all duration-300 group-hover/phone:translate-x-0.5 group-hover/phone:-translate-y-0.5 group-hover/phone:text-amber-300">
+                      <ArrowIcon />
+                    </span>
+                  </a>
+                ))}
               </div>
             </div>
           </article>
@@ -325,7 +330,7 @@ export default function ContactInfo() {
               WORKING HOURS
           ====================================================== */}
 
-          <article className="group relative overflow-hidden rounded-[26px] border border-white/10 bg-[#0b1728]/95 p-7 shadow-2xl shadow-black/30 sm:p-8 lg:col-span-5 lg:p-10">
+          <article className={`${cardClass} lg:col-span-5`}>
             <CardTopline />
             <CornerDecoration />
 
@@ -375,7 +380,7 @@ export default function ContactInfo() {
           <article className="relative overflow-hidden rounded-[26px] border border-amber-300/20 bg-gradient-to-br from-[#17253a] via-[#101d30] to-[#0b1728] p-7 shadow-2xl shadow-black/30 sm:p-8 lg:col-span-7 lg:p-10">
             <div
               aria-hidden="true"
-              className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-amber-300/[0.07] blur-3xl"
+              className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-amber-300/[0.07] blur-[70px]"
             />
 
             <div className="relative flex h-full flex-col justify-between gap-10 sm:flex-row sm:items-end">

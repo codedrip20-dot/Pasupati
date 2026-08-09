@@ -1,54 +1,45 @@
-"use client";
-
 import Image from "next/image";
-import { ArrowDown, ArrowUpRight } from "lucide-react";
-import { motion, useReducedMotion } from "framer-motion";
+import Link from "next/link";
 
-import Button from "@/src/components/ui/Button";
 import Container from "@/src/components/ui/Container";
 
 export default function Hero() {
-  const shouldReduceMotion = useReducedMotion();
-
   return (
     <section className="relative min-h-[100svh] overflow-hidden bg-(--color-navy)">
       {/* =========================================================
           BACKGROUND IMAGE
-          Desktop: full-screen
-          Mobile: controlled upper section
-      ========================================================= */}
 
-      <motion.div
-        initial={shouldReduceMotion ? false : { scale: 1.06 }}
-        animate={{ scale: 1 }}
-        transition={{
-          duration: 1.8,
-          ease: [0.22, 1, 0.36, 1],
-        }}
+          IMPORTANT:
+          This is the primary LCP image, so it must NOT be lazy-loaded.
+      ========================================================== */}
+
+      <div
         className="
           absolute inset-x-0 top-0
           h-[61%]
+          animate-hero-image-in
           sm:inset-0
           sm:h-full
         "
       >
         <Image
           src="/assets/hero.jpeg"
-          alt="Pashupati Infrastructure construction project"
+          alt="Pasupati Infrastructure construction project"
           fill
           priority
           sizes="100vw"
+          quality={75}
           className="
             object-cover
             object-[58%_38%]
             sm:object-center
           "
         />
-      </motion.div>
+      </div>
 
       {/* =========================================================
           IMAGE TINT
-      ========================================================= */}
+      ========================================================== */}
 
       <div
         aria-hidden="true"
@@ -61,38 +52,29 @@ export default function Hero() {
 
       {/* =========================================================
           DESKTOP LEFT CONTRAST
-      ========================================================= */}
+      ========================================================== */}
 
       <div
         aria-hidden="true"
-        className="
-          absolute inset-0 hidden sm:block
-        "
-        style={{
-          background:
-            "linear-gradient(90deg, rgba(12,29,50,0.96) 0%, rgba(12,29,50,0.76) 34%, rgba(12,29,50,0.34) 68%, rgba(12,29,50,0.12) 100%)",
-        }}
+        className="absolute inset-0 hidden bg-[linear-gradient(90deg,rgba(12,29,50,0.96)_0%,rgba(12,29,50,0.76)_34%,rgba(12,29,50,0.34)_68%,rgba(12,29,50,0.12)_100%)] sm:block"
       />
 
       {/* =========================================================
           MOBILE IMAGE → NAVY TRANSITION
-      ========================================================= */}
+      ========================================================== */}
 
       <div
         aria-hidden="true"
         className="
           absolute inset-x-0 top-[36%] z-[1] h-[32%]
+          bg-[linear-gradient(to_bottom,transparent_0%,rgba(12,29,50,0.28)_20%,rgba(12,29,50,0.72)_58%,rgba(12,29,50,1)_100%)]
           sm:hidden
         "
-        style={{
-          background:
-            "linear-gradient(to bottom, transparent 0%, rgba(12,29,50,0.28) 20%, rgba(12,29,50,0.72) 58%, rgba(12,29,50,1) 100%)",
-        }}
       />
 
       {/* =========================================================
           MOBILE BOTTOM NAVY
-      ========================================================= */}
+      ========================================================== */}
 
       <div
         aria-hidden="true"
@@ -105,20 +87,20 @@ export default function Hero() {
 
       {/* =========================================================
           DESKTOP BOTTOM CINEMATIC FADE
-      ========================================================= */}
+      ========================================================== */}
 
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 bottom-0 hidden h-72 sm:block"
-        style={{
-          background:
-            "linear-gradient(to top, rgba(12,29,50,0.98), rgba(12,29,50,0))",
-        }}
+        className="
+          absolute inset-x-0 bottom-0 hidden h-72
+          bg-[linear-gradient(to_top,rgba(12,29,50,0.98),rgba(12,29,50,0))]
+          sm:block
+        "
       />
 
       {/* =========================================================
           SUBTLE NAVY ATMOSPHERIC GLOW
-      ========================================================= */}
+      ========================================================== */}
 
       <div
         aria-hidden="true"
@@ -128,14 +110,14 @@ export default function Hero() {
           h-80 w-80
           rounded-full
           bg-blue-500/[0.06]
-          blur-[100px]
-          sm:left-[-8%] sm:top-[42%]
+          blur-[80px]
+          sm:left-[-8%] sm:top-[42%] sm:blur-[100px]
         "
       />
 
       {/* =========================================================
           SUBTLE GOLD ATMOSPHERIC GLOW
-      ========================================================= */}
+      ========================================================== */}
 
       <div
         aria-hidden="true"
@@ -145,21 +127,18 @@ export default function Hero() {
           h-72 w-72
           rounded-full
           bg-(--color-gold)/[0.055]
-          blur-[110px]
-          sm:right-[-8%] sm:top-[30%]
+          blur-[90px]
+          sm:right-[-8%] sm:top-[30%] sm:blur-[110px]
         "
       />
 
       {/* =========================================================
           ARCHITECTURAL GRID
-      ========================================================= */}
+      ========================================================== */}
 
       <div
         aria-hidden="true"
-        className="
-          pointer-events-none absolute inset-0
-          opacity-[0.07]
-        "
+        className="pointer-events-none absolute inset-0 opacity-[0.07]"
       >
         <div className="absolute left-[7%] top-0 h-full w-px bg-white" />
 
@@ -172,7 +151,7 @@ export default function Hero() {
 
       {/* =========================================================
           HERO CONTENT
-      ========================================================= */}
+      ========================================================== */}
 
       <Container
         className="
@@ -181,10 +160,8 @@ export default function Hero() {
           items-end
           pb-24
           pt-24
-
           sm:pb-20
           sm:pt-32
-
           lg:pb-24
         "
       >
@@ -194,22 +171,12 @@ export default function Hero() {
                 EYEBROW
             ===================================================== */}
 
-            <motion.div
-              initial={
-                shouldReduceMotion
-                  ? false
-                  : { opacity: 0, x: -18 }
-              }
-              animate={{ opacity: 1, x: 0 }}
-              transition={{
-                duration: 0.7,
-                delay: 0.15,
-                ease: "easeOut",
-              }}
+            <div
               className="
                 mb-5
                 flex items-center gap-3
-
+                animate-hero-eyebrow-in
+                motion-reduce:animate-none
                 sm:mb-7
                 sm:gap-4
               "
@@ -220,7 +187,6 @@ export default function Hero() {
                   w-8
                   bg-(--color-gold)
                   shadow-[0_0_12px_rgba(255,211,159,0.35)]
-
                   sm:w-12
                 "
               />
@@ -233,39 +199,28 @@ export default function Hero() {
                   tracking-[0.28em]
                   text-(--color-gold)
                   drop-shadow-[0_0_12px_rgba(255,211,159,0.12)]
-
                   sm:text-sm
                   sm:tracking-[0.3em]
                 "
               >
                 Pasupati Infrastructure
               </span>
-            </motion.div>
+            </div>
 
             {/* =====================================================
                 MAIN HEADING
             ===================================================== */}
 
-            <motion.h1
-              initial={
-                shouldReduceMotion
-                  ? false
-                  : { opacity: 0, y: 28 }
-              }
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.9,
-                delay: 0.25,
-                ease: [0.22, 1, 0.36, 1],
-              }}
+            <h1
               className="
                 max-w-4xl
+                animate-hero-heading-in
+                motion-reduce:animate-none
                 text-[3rem]
                 font-semibold
                 leading-[0.94]
                 tracking-[-0.045em]
                 text-white
-
                 sm:text-[clamp(4rem,7vw,7.5rem)]
               "
             >
@@ -285,28 +240,18 @@ export default function Hero() {
               >
                 Creating Futures.
               </span>
-            </motion.h1>
+            </h1>
 
             {/* =====================================================
                 DESCRIPTION + CTA
             ===================================================== */}
 
-            <motion.div
-              initial={
-                shouldReduceMotion
-                  ? false
-                  : { opacity: 0, y: 20 }
-              }
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.8,
-                delay: 0.45,
-                ease: "easeOut",
-              }}
+            <div
               className="
                 mt-7
                 flex flex-col gap-6
-
+                animate-hero-content-in
+                motion-reduce:animate-none
                 sm:mt-9
                 sm:flex-row
                 sm:items-center
@@ -319,7 +264,6 @@ export default function Hero() {
                   text-[13px]
                   leading-6
                   text-white/70
-
                   sm:text-base
                   sm:leading-7
                 "
@@ -328,68 +272,76 @@ export default function Hero() {
                 responsibility and a vision for generations
                 to come.
               </p>
-<a
-  href="/projects"
-  className="
-    group relative inline-flex w-fit items-center gap-3
-    overflow-hidden rounded-sm
-    border border-[#D9A441]/70
-    bg-[#D9A441]
-    px-6 py-3.5
-    text-sm font-semibold tracking-wide text-[#07111F]
-    shadow-[0_8px_30px_rgba(217,164,65,0.18)]
-    transition-all duration-300
-    hover:-translate-y-0.5
-    hover:bg-[#E8B95A]
-    hover:shadow-[0_12px_35px_rgba(217,164,65,0.28)]
-    active:translate-y-0
-  "
->
-  <span>Explore Projects</span>
 
-  <span
-    className="
-      flex h-7 w-7 items-center justify-center
-      rounded-full
-      bg-[#07111F]/10
-      transition-transform duration-300
-      group-hover:translate-x-1
-    "
-  >
-    <svg
-      viewBox="0 0 20 20"
-      fill="none"
-      className="h-4 w-4"
-      aria-hidden="true"
-    >
-      <path
-        d="M4 10h11M10 5l5 5-5 5"
-        stroke="currentColor"
-        strokeWidth="1.7"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  </span>
-</a>
-            </motion.div>
+              <Link
+                href="/projects"
+                className="
+                  group
+                  relative
+                  inline-flex
+                  w-fit
+                  items-center
+                  gap-3
+                  overflow-hidden
+                  rounded-sm
+                  border
+                  border-[#D9A441]/70
+                  bg-[#D9A441]
+                  px-6
+                  py-3.5
+                  text-sm
+                  font-semibold
+                  tracking-wide
+                  text-[#07111F]
+                  shadow-[0_8px_30px_rgba(217,164,65,0.18)]
+                  transition-[transform,background-color,box-shadow]
+                  duration-300
+                  hover:-translate-y-0.5
+                  hover:bg-[#E8B95A]
+                  hover:shadow-[0_12px_35px_rgba(217,164,65,0.28)]
+                  active:translate-y-0
+                "
+              >
+                <span>Explore Projects</span>
+
+                <span
+                  className="
+                    flex
+                    h-7
+                    w-7
+                    items-center
+                    justify-center
+                    rounded-full
+                    bg-[#07111F]/10
+                    transition-transform
+                    duration-300
+                    group-hover:translate-x-1
+                  "
+                >
+                  <svg
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    className="h-4 w-4"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M4 10h11M10 5l5 5-5 5"
+                      stroke="currentColor"
+                      strokeWidth="1.7"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </span>
+              </Link>
+            </div>
           </div>
 
           {/* =====================================================
               BOTTOM INFORMATION
           ===================================================== */}
 
-          <motion.div
-            initial={
-              shouldReduceMotion
-                ? false
-                : { opacity: 0, y: 12 }
-            }
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.8,
-              delay: 0.7,
-            }}
+          <div
             className="
               mt-12
               flex
@@ -398,7 +350,8 @@ export default function Hero() {
               border-t
               border-white/10
               pt-4
-
+              animate-hero-bottom-in
+              motion-reduce:animate-none
               sm:mt-16
               sm:pt-5
             "
@@ -420,7 +373,7 @@ export default function Hero() {
               </p>
             </div>
 
-            {/* Mobile / Desktop Scroll */}
+            {/* Scroll */}
 
             <div
               className="
@@ -453,42 +406,38 @@ export default function Hero() {
                   border-white/15
                   bg-white/[0.02]
                   shadow-[0_0_20px_rgba(255,255,255,0.03)]
-                  backdrop-blur-sm
                 "
               >
-                <ArrowDown
-                  size={14}
-                  strokeWidth={1.5}
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden="true"
                   className="
+                    h-4 w-4
                     text-(--color-gold)
                     drop-shadow-[0_0_8px_rgba(255,211,159,0.35)]
                   "
-                />
+                >
+                  <path
+                    d="M12 5v14M6.5 13.5 12 19l5.5-5.5"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </Container>
 
       {/* =========================================================
           GOLD ARCHITECTURAL ACCENT
-      ========================================================= */}
+      ========================================================== */}
 
-      <motion.div
-        initial={
-          shouldReduceMotion
-            ? false
-            : { scaleY: 0 }
-        }
-        animate={{ scaleY: 1 }}
-        transition={{
-          duration: 1,
-          delay: 0.7,
-          ease: [0.22, 1, 0.36, 1],
-        }}
-        style={{
-          transformOrigin: "bottom",
-        }}
+      <div
+        aria-hidden="true"
         className="
           absolute
           bottom-0
@@ -496,28 +445,20 @@ export default function Hero() {
           hidden
           h-28
           w-px
+          origin-bottom
+          animate-hero-line-in
           bg-(--color-gold)
           shadow-[0_0_14px_rgba(255,211,159,0.35)]
-
           sm:block
+          motion-reduce:animate-none
         "
       />
 
       {/* =========================================================
           FEATURED PROJECT MARKER
-      ========================================================= */}
+      ========================================================== */}
 
-      <motion.div
-        initial={
-          shouldReduceMotion
-            ? false
-            : { opacity: 0 }
-        }
-        animate={{ opacity: 1 }}
-        transition={{
-          duration: 0.8,
-          delay: 0.9,
-        }}
+      <div
         className="
           absolute
           bottom-8
@@ -525,8 +466,9 @@ export default function Hero() {
           hidden
           items-center
           gap-3
-
+          animate-hero-marker-in
           lg:flex
+          motion-reduce:animate-none
         "
       >
         <span
@@ -541,15 +483,25 @@ export default function Hero() {
           Featured Project
         </span>
 
-        <ArrowUpRight
-          size={15}
-          strokeWidth={1.5}
+        <svg
+          viewBox="0 0 20 20"
+          fill="none"
+          aria-hidden="true"
           className="
+            h-4 w-4
             text-(--color-gold)
             drop-shadow-[0_0_8px_rgba(255,211,159,0.3)]
           "
-        />
-      </motion.div>
+        >
+          <path
+            d="M5 15 15 5M7 5h8v8"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </div>
     </section>
   );
 }

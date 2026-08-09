@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 function ArrowIcon() {
@@ -63,33 +64,38 @@ export default function HomeAbout() {
     <section
       id="about-preview"
       className="relative isolate overflow-hidden bg-[#070D18] text-white"
+      style={{
+        contentVisibility: "auto",
+        containIntrinsicSize: "950px",
+      }}
     >
       {/* =========================================================
           BACKGROUND
       ========================================================== */}
 
       <div className="absolute inset-0 -z-30">
-        <img
+        <Image
           src="/assets/hero2.jpeg"
           alt=""
           aria-hidden="true"
-          className="h-full w-full object-cover object-center"
+          fill
+          sizes="100vw"
+          quality={60}
+          loading="lazy"
+          className="object-cover object-center"
         />
       </div>
 
-      {/* Main dark treatment */}
-      <div className="absolute inset-0 -z-20 bg-[#07111F]/75" />
-
-      {/* Left-heavy gradient for typography */}
-      <div className="absolute inset-0 -z-20 bg-gradient-to-r from-[#07111F] via-[#07111F]/90 to-[#07111F]/45" />
-
-      {/* Bottom fade */}
-      <div className="absolute inset-0 -z-20 bg-gradient-to-t from-[#070D18] via-transparent to-[#070D18]/30" />
+      {/* Combined cinematic treatment */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-20 bg-[linear-gradient(to_right,rgba(7,17,31,1),rgba(7,17,31,0.9),rgba(7,17,31,0.45)),linear-gradient(to_top,rgba(7,13,24,1),rgba(7,13,24,0),rgba(7,13,24,0.3))]"
+      />
 
       {/* Blueprint grid */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 opacity-[0.07]"
+        className="pointer-events-none absolute inset-0 -z-10 opacity-[0.07]"
         style={{
           backgroundImage: `
             linear-gradient(
@@ -110,7 +116,7 @@ export default function HomeAbout() {
       {/* Gold ambient glow */}
       <div
         aria-hidden="true"
-        className="absolute -right-40 top-1/3 -z-10 h-[32rem] w-[32rem] rounded-full bg-[#D9A441]/10 blur-[120px]"
+        className="pointer-events-none absolute -right-40 top-1/3 -z-10 h-[32rem] w-[32rem] rounded-full bg-[#D9A441]/10 blur-[90px] sm:blur-[120px]"
       />
 
       {/* =========================================================
@@ -144,7 +150,7 @@ export default function HomeAbout() {
             MAIN PANEL
         ========================================================== */}
 
-        <div className="relative overflow-hidden border border-white/10 bg-[#07111F]/45 backdrop-blur-sm">
+        <div className="relative overflow-hidden border border-white/10 bg-[#07111F]/45 backdrop-blur-[2px] sm:backdrop-blur-sm">
           <CornerFrame />
 
           <div className="grid lg:grid-cols-[1.15fr_0.85fr]">
@@ -184,7 +190,7 @@ export default function HomeAbout() {
               <div className="mt-10">
                 <Link
                   href="/about"
-                  className="group inline-flex items-center gap-3 border border-[#D9A441]/70 bg-[#D9A441] px-5 py-3 text-sm font-semibold tracking-wide text-[#07111F] shadow-[0_10px_35px_rgba(217,164,65,0.15)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#E8B95A] hover:shadow-[0_14px_40px_rgba(217,164,65,0.25)] active:translate-y-0"
+                  className="group inline-flex items-center gap-3 border border-[#D9A441]/70 bg-[#D9A441] px-5 py-3 text-sm font-semibold tracking-wide text-[#07111F] shadow-[0_10px_35px_rgba(217,164,65,0.15)] transition-[transform,background-color,box-shadow] duration-300 hover:-translate-y-0.5 hover:bg-[#E8B95A] hover:shadow-[0_14px_40px_rgba(217,164,65,0.25)] active:translate-y-0"
                 >
                   <span>Discover Our Story</span>
 
@@ -200,10 +206,10 @@ export default function HomeAbout() {
             ====================================================== */}
 
             <div className="relative border-t border-white/10 lg:border-l lg:border-t-0">
-              {/* Subtle image reveal */}
+              {/* Subtle lighting */}
               <div
                 aria-hidden="true"
-                className="absolute inset-0 bg-gradient-to-br from-[#D9A441]/10 via-transparent to-[#07111F]/70"
+                className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#D9A441]/10 via-transparent to-[#07111F]/70"
               />
 
               <div className="relative flex h-full min-h-[480px] flex-col justify-between px-7 py-10 sm:px-12 sm:py-14 lg:px-12 lg:py-16">
@@ -214,7 +220,10 @@ export default function HomeAbout() {
                       Our Principles
                     </span>
 
-                    <span className="h-2 w-2 rounded-full bg-[#D9A441] shadow-[0_0_12px_rgba(217,164,65,0.7)]" />
+                    <span
+                      aria-hidden="true"
+                      className="h-2 w-2 rounded-full bg-[#D9A441] shadow-[0_0_12px_rgba(217,164,65,0.7)]"
+                    />
                   </div>
 
                   <div className="mt-5 h-px w-full bg-white/10" />
@@ -244,7 +253,7 @@ export default function HomeAbout() {
 
                             <span
                               aria-hidden="true"
-                              className="h-px w-0 bg-[#D9A441] transition-all duration-300 group-hover:w-8"
+                              className="h-px w-0 bg-[#D9A441] transition-[width] duration-300 group-hover:w-8"
                             />
                           </div>
 

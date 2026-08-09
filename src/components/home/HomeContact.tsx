@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 function ArrowIcon() {
@@ -88,31 +89,38 @@ export default function HomeContact() {
     <section
       id="home-contact"
       className="relative isolate overflow-hidden bg-[#070D18] text-white"
+      style={{
+        contentVisibility: "auto",
+        containIntrinsicSize: "1000px",
+      }}
     >
       {/* =========================================================
           BACKGROUND
       ========================================================== */}
 
       <div className="absolute inset-0 -z-30">
-        <img
+        <Image
           src="/assets/gallery/img2.jpeg"
           alt=""
           aria-hidden="true"
-          className="h-full w-full object-cover object-center"
+          fill
+          sizes="100vw"
+          quality={60}
+          loading="lazy"
+          className="object-cover object-center"
         />
       </div>
 
-      {/* Architectural overlays */}
-      <div className="absolute inset-0 -z-20 bg-[#07111F]/75" />
-
-      <div className="absolute inset-0 -z-20 bg-gradient-to-r from-[#07111F] via-[#07111F]/90 to-[#07111F]/55" />
-
-      <div className="absolute inset-0 -z-20 bg-gradient-to-t from-[#070D18] via-[#07111F]/20 to-[#070D18]/40" />
+      {/* Combined cinematic overlays */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-20 bg-[linear-gradient(to_right,rgba(7,17,31,1),rgba(7,17,31,0.9),rgba(7,17,31,0.55)),linear-gradient(to_top,rgba(7,13,24,1),rgba(7,17,31,0.2),rgba(7,13,24,0.4))]"
+      />
 
       {/* Blueprint grid */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 opacity-[0.055]"
+        className="pointer-events-none absolute inset-0 -z-10 opacity-[0.055]"
         style={{
           backgroundImage: `
             linear-gradient(
@@ -133,7 +141,7 @@ export default function HomeContact() {
       {/* Ambient gold light */}
       <div
         aria-hidden="true"
-        className="absolute -left-40 bottom-[-8rem] -z-10 h-[32rem] w-[32rem] rounded-full bg-[#D9A441]/10 blur-[120px]"
+        className="pointer-events-none absolute -left-40 bottom-[-8rem] -z-10 h-[32rem] w-[32rem] rounded-full bg-[#D9A441]/10 blur-[90px] sm:blur-[120px]"
       />
 
       {/* =========================================================
@@ -167,7 +175,7 @@ export default function HomeContact() {
             MAIN PANEL
         ========================================================== */}
 
-        <div className="relative overflow-hidden border border-white/15 bg-[#0A3158]/45 shadow-[0_30px_100px_rgba(0,0,0,0.25)] backdrop-blur-md">
+        <div className="relative overflow-hidden border border-white/15 bg-[#0A3158]/45 shadow-[0_30px_100px_rgba(0,0,0,0.25)] backdrop-blur-[2px] sm:backdrop-blur-md">
           <CornerMarks />
 
           <div className="grid lg:grid-cols-[1.1fr_0.9fr]">
@@ -205,7 +213,7 @@ export default function HomeContact() {
                 {/* Primary */}
                 <Link
                   href="/contact#contact-information"
-                  className="group inline-flex items-center gap-3 border border-[#D9A441]/80 bg-[#D9A441] px-5 py-3.5 text-sm font-semibold tracking-wide text-[#07111F] shadow-[0_10px_35px_rgba(217,164,65,0.18)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#E8B95A] hover:shadow-[0_16px_45px_rgba(217,164,65,0.3)] active:translate-y-0"
+                  className="group inline-flex items-center gap-3 border border-[#D9A441]/80 bg-[#D9A441] px-5 py-3.5 text-sm font-semibold tracking-wide text-[#07111F] shadow-[0_10px_35px_rgba(217,164,65,0.18)] transition-[transform,background-color,box-shadow] duration-300 hover:-translate-y-0.5 hover:bg-[#E8B95A] hover:shadow-[0_16px_45px_rgba(217,164,65,0.3)] active:translate-y-0"
                 >
                   <span>Start a Conversation</span>
 
@@ -217,7 +225,7 @@ export default function HomeContact() {
                 {/* Secondary */}
                 <Link
                   href="/contact"
-                  className="group inline-flex items-center gap-3 border border-white/20 bg-white/[0.04] px-5 py-3.5 text-sm font-medium tracking-wide text-white/80 transition-all duration-300 hover:-translate-y-0.5 hover:border-white/40 hover:bg-white/[0.08] hover:text-white"
+                  className="group inline-flex items-center gap-3 border border-white/20 bg-white/[0.04] px-5 py-3.5 text-sm font-medium tracking-wide text-white/80 transition-[transform,border-color,background-color,color] duration-300 hover:-translate-y-0.5 hover:border-white/40 hover:bg-white/[0.08] hover:text-white"
                 >
                   <span>View Contact Page</span>
 
@@ -241,7 +249,7 @@ export default function HomeContact() {
               {/* Panel lighting */}
               <div
                 aria-hidden="true"
-                className="absolute inset-0 bg-gradient-to-br from-[#D9A441]/10 via-transparent to-[#07111F]/60"
+                className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#D9A441]/10 via-transparent to-[#07111F]/60"
               />
 
               <div className="relative flex h-full flex-col px-7 py-10 sm:px-12 sm:py-14 lg:px-12 lg:py-16">
@@ -270,10 +278,10 @@ export default function HomeContact() {
 
                   <a
                     href={`mailto:${contactDetails.email}`}
-                    className="group flex items-center justify-between gap-4 border border-white/15 bg-[#07111F]/35 px-4 py-4 transition-all duration-300 hover:border-[#D9A441]/50 hover:bg-[#07111F]/55 sm:px-5"
+                    className="group flex items-center justify-between gap-4 border border-white/15 bg-[#07111F]/35 px-4 py-4 transition-[border-color,background-color] duration-300 hover:border-[#D9A441]/50 hover:bg-[#07111F]/55 sm:px-5"
                   >
                     <div className="flex min-w-0 items-center gap-4">
-                      <span className="flex h-10 w-10 shrink-0 items-center justify-center border border-white/10 bg-white/[0.04] text-[#D9A441] transition-all duration-300 group-hover:border-[#D9A441]/30 group-hover:bg-[#D9A441]/10">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center border border-white/10 bg-white/[0.04] text-[#D9A441] transition-[border-color,background-color] duration-300 group-hover:border-[#D9A441]/30 group-hover:bg-[#D9A441]/10">
                         <MailIcon />
                       </span>
 
@@ -308,10 +316,10 @@ export default function HomeContact() {
                       <a
                         key={phone}
                         href={`tel:${phone.replace(/\s/g, "")}`}
-                        className="group flex items-center justify-between gap-4 border border-white/15 bg-white/[0.035] px-4 py-4 transition-all duration-300 hover:border-[#D9A441]/50 hover:bg-white/[0.06] sm:px-5"
+                        className="group flex items-center justify-between gap-4 border border-white/15 bg-white/[0.035] px-4 py-4 transition-[border-color,background-color] duration-300 hover:border-[#D9A441]/50 hover:bg-white/[0.06] sm:px-5"
                       >
                         <div className="flex items-center gap-4">
-                          <span className="flex h-10 w-10 shrink-0 items-center justify-center border border-white/10 bg-white/[0.04] text-[#D9A441] transition-all duration-300 group-hover:border-[#D9A441]/30 group-hover:bg-[#D9A441]/10">
+                          <span className="flex h-10 w-10 shrink-0 items-center justify-center border border-white/10 bg-white/[0.04] text-[#D9A441] transition-[border-color,background-color] duration-300 group-hover:border-[#D9A441]/30 group-hover:bg-[#D9A441]/10">
                             <PhoneIcon />
                           </span>
 
@@ -326,7 +334,7 @@ export default function HomeContact() {
                           </span>
                         </div>
 
-                        <span className="hidden h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/15 text-white/50 transition-all duration-300 group-hover:translate-x-1 group-hover:border-[#D9A441]/40 group-hover:text-[#D9A441] sm:flex">
+                        <span className="hidden h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/15 text-white/50 transition-[transform,border-color,color] duration-300 group-hover:translate-x-1 group-hover:border-[#D9A441]/40 group-hover:text-[#D9A441] sm:flex">
                           <ArrowIcon />
                         </span>
                       </a>

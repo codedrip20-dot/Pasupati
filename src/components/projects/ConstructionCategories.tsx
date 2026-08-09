@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { constructionCategories } from "@/src/data/constructionCategories";
 import type { ConstructionCategory } from "@/src/types/projects";
@@ -15,12 +16,19 @@ export default function ConstructionCategories() {
       {/* =========================================================
           BACKGROUND IMAGE
       ========================================================== */}
-      <div className="absolute inset-0 -z-30">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: "url('/assets/gallery/img4.jpeg')",
-          }}
+
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-30"
+      >
+        <Image
+          src="/assets/gallery/img4.jpeg"
+          alt=""
+          fill
+          loading="lazy"
+          sizes="100vw"
+          quality={50}
+          className="object-cover object-center"
         />
 
         {/* Cinematic image treatment */}
@@ -34,7 +42,11 @@ export default function ConstructionCategories() {
       {/* =========================================================
           ARCHITECTURAL GRID
       ========================================================== */}
-      <div className="pointer-events-none absolute inset-0 -z-20">
+
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-20"
+      >
         <div className="mx-auto h-full max-w-[1440px] border-x border-white/[0.07]" />
 
         <div className="absolute inset-y-0 left-1/2 border-l border-white/[0.045]" />
@@ -47,10 +59,12 @@ export default function ConstructionCategories() {
       {/* =========================================================
           CONTENT
       ========================================================== */}
+
       <div className="relative mx-auto max-w-7xl px-6 py-24 sm:px-8 sm:py-32 lg:px-12 lg:py-40">
         {/* =======================================================
             HEADER
         ======================================================== */}
+
         <motion.header
           initial={
             shouldReduceMotion
@@ -74,7 +88,6 @@ export default function ConstructionCategories() {
           }}
           className="max-w-5xl"
         >
-          {/* Section marker */}
           <div className="mb-8 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <span className="h-px w-10 bg-[#e6b96f] sm:w-14" />
@@ -89,7 +102,6 @@ export default function ConstructionCategories() {
             </span>
           </div>
 
-          {/* Heading */}
           <h2 className="max-w-4xl text-[3.15rem] font-medium leading-[0.9] tracking-[-0.065em] sm:text-5xl md:text-6xl lg:text-[6rem]">
             Different purposes.
             <br />
@@ -97,7 +109,6 @@ export default function ConstructionCategories() {
             <span className="text-white/40">One standard.</span>
           </h2>
 
-          {/* Intro */}
           <p className="mt-8 max-w-2xl text-sm leading-7 text-white/65 sm:text-base sm:leading-8 lg:text-[17px]">
             From commercial developments and infrastructure to sacred spaces,
             healthcare, hospitality, education and residential construction,
@@ -108,8 +119,8 @@ export default function ConstructionCategories() {
         {/* =======================================================
             CATEGORY LIST
         ======================================================== */}
+
         <div className="mt-16 sm:mt-24">
-          {/* List heading */}
           <div className="mb-4 flex items-center justify-between border-b border-white/15 pb-4">
             <span className="text-[8px] font-semibold uppercase tracking-[0.3em] text-white/35 sm:text-[9px]">
               Areas of Expertise
@@ -135,6 +146,7 @@ export default function ConstructionCategories() {
         {/* =======================================================
             BOTTOM NOTE
         ======================================================== */}
+
         <motion.div
           initial={
             shouldReduceMotion
@@ -171,9 +183,16 @@ export default function ConstructionCategories() {
       {/* =========================================================
           CORNER MARKERS
       ========================================================== */}
-      <div className="pointer-events-none absolute left-5 top-5 h-8 w-8 border-l border-t border-white/15 sm:left-8 sm:top-8" />
 
-      <div className="pointer-events-none absolute bottom-5 right-5 h-8 w-8 border-b border-r border-white/15 sm:bottom-8 sm:right-8" />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-5 top-5 h-8 w-8 border-l border-t border-white/15 sm:left-8 sm:top-8"
+      />
+
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-5 right-5 h-8 w-8 border-b border-r border-white/15 sm:bottom-8 sm:right-8"
+      />
     </section>
   );
 }
@@ -219,7 +238,10 @@ function CategoryRow({
       className="group relative border-b border-white/10"
     >
       {/* Hover surface */}
-      <div className="absolute inset-0 -z-10 origin-left scale-x-0 bg-white/[0.045] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100" />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 origin-left scale-x-0 bg-white/[0.045] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100"
+      />
 
       <div className="py-8 sm:py-10 lg:py-11">
         <div className="grid gap-5 lg:grid-cols-[80px_minmax(0,1.2fr)_minmax(280px,0.8fr)_52px] lg:items-center lg:gap-12">

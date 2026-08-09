@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 function CornerMarks() {
   return (
     <>
@@ -46,32 +48,39 @@ export default function WhyUs() {
     <section
       id="why-us"
       className="relative isolate overflow-hidden bg-[#070D18] text-white"
+      style={{
+        contentVisibility: "auto",
+        containIntrinsicSize: "900px",
+      }}
     >
       {/* =========================================================
           BACKGROUND
       ========================================================== */}
 
       <div className="absolute inset-0 -z-30">
-        <img
+        <Image
           src="/assets/gallery/img19.jpeg"
           alt=""
           aria-hidden="true"
-          className="h-full w-full object-cover object-center"
+          fill
+          sizes="100vw"
+          quality={65}
+          loading="lazy"
+          className="object-cover object-center"
         />
       </div>
 
-      {/* Deep navy cinematic overlay */}
-      <div className="absolute inset-0 -z-20 bg-[#07111F]/80" />
-
-      {/* Directional lighting */}
-      <div className="absolute inset-0 -z-20 bg-gradient-to-r from-[#07111F] via-[#07111F]/90 to-[#07111F]/55" />
-
-      <div className="absolute inset-0 -z-20 bg-gradient-to-t from-[#070D18] via-[#07111F]/30 to-[#07111F]/70" />
+      {/* Combined cinematic overlays.
+          Keeping these gradients on one layer reduces compositing work. */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-20 bg-[linear-gradient(to_right,rgba(7,17,31,1),rgba(7,17,31,0.9),rgba(7,17,31,0.55)),linear-gradient(to_top,rgba(7,13,24,1),rgba(7,17,31,0.3),rgba(7,17,31,0.7))]"
+      />
 
       {/* Blueprint grid */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 opacity-[0.045]"
+        className="pointer-events-none absolute inset-0 -z-10 opacity-[0.045]"
         style={{
           backgroundImage: `
             linear-gradient(
@@ -92,7 +101,7 @@ export default function WhyUs() {
       {/* Gold atmospheric glow */}
       <div
         aria-hidden="true"
-        className="absolute -right-48 top-1/4 -z-10 h-[34rem] w-[34rem] rounded-full bg-[#D9A441]/10 blur-[130px]"
+        className="pointer-events-none absolute -right-48 top-1/4 -z-10 h-[34rem] w-[34rem] rounded-full bg-[#D9A441]/10 blur-[100px] sm:blur-[130px]"
       />
 
       {/* =========================================================
@@ -145,7 +154,7 @@ export default function WhyUs() {
             MAIN PANEL
         ======================================================== */}
 
-        <div className="relative mt-12 overflow-hidden border border-white/10 bg-[#07111F]/50 shadow-[0_30px_100px_rgba(0,0,0,0.25)] backdrop-blur-md">
+        <div className="relative mt-12 overflow-hidden border border-white/10 bg-[#07111F]/50 shadow-[0_30px_100px_rgba(0,0,0,0.25)] backdrop-blur-[2px] sm:backdrop-blur-md">
           <CornerMarks />
 
           <div className="grid lg:grid-cols-[0.78fr_1.22fr]">
@@ -187,10 +196,7 @@ export default function WhyUs() {
                   Built with purpose.
                   <br />
                   Delivered with
-                  <span className="text-[#D9A441]">
-                    {" "}
-                    responsibility.
-                  </span>
+                  <span className="text-[#D9A441]"> responsibility.</span>
                 </p>
 
                 <p className="mt-6 max-w-md text-sm leading-7 text-white/40">
@@ -217,7 +223,7 @@ export default function WhyUs() {
               {reasons.map((reason, index) => (
                 <article
                   key={reason.number}
-                  className={`group relative flex min-h-[260px] flex-col overflow-hidden px-7 py-8 transition-all duration-500 hover:bg-white/[0.035] sm:px-9 sm:py-10 ${
+                  className={`group relative flex min-h-[260px] flex-col overflow-hidden px-7 py-8 transition-colors duration-500 sm:px-9 sm:py-10 ${
                     index < 2 ? "border-b border-white/10" : ""
                   } ${
                     index % 2 === 0
@@ -235,9 +241,9 @@ export default function WhyUs() {
                       aria-hidden="true"
                       className="relative flex h-5 w-5 items-center justify-center"
                     >
-                      <span className="absolute h-px w-5 bg-white/10 transition-all duration-300 group-hover:bg-[#D9A441]/40" />
+                      <span className="absolute h-px w-5 bg-white/10 transition-colors duration-300 group-hover:bg-[#D9A441]/40" />
 
-                      <span className="absolute h-5 w-px bg-white/10 transition-all duration-300 group-hover:bg-[#D9A441]/40" />
+                      <span className="absolute h-5 w-px bg-white/10 transition-colors duration-300 group-hover:bg-[#D9A441]/40" />
                     </span>
                   </div>
 
@@ -254,13 +260,13 @@ export default function WhyUs() {
                   {/* Hover number accent */}
                   <span
                     aria-hidden="true"
-                    className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#D9A441] transition-all duration-500 group-hover:w-20"
+                    className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#D9A441] transition-[width] duration-500 group-hover:w-20"
                   />
 
                   {/* Corner detail */}
                   <span
                     aria-hidden="true"
-                    className="absolute right-0 top-0 h-0 w-0 border-r border-t border-[#D9A441]/0 transition-all duration-500 group-hover:h-8 group-hover:w-8 group-hover:border-[#D9A441]/30"
+                    className="absolute right-0 top-0 h-0 w-0 border-r border-t border-[#D9A441]/0 transition-[height,width,border-color] duration-500 group-hover:h-8 group-hover:w-8 group-hover:border-[#D9A441]/30"
                   />
                 </article>
               ))}

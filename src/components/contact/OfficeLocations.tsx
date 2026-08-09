@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Building2, Mail, MapPin } from "lucide-react";
 import { contactData } from "@/src/data/Contact";
 
@@ -7,6 +8,10 @@ export default function OfficialLocations() {
       id="our-locations"
       aria-labelledby="locations-title"
       className="relative isolate overflow-hidden bg-[#07111f] py-24 sm:py-28 lg:py-36"
+      style={{
+        contentVisibility: "auto",
+        containIntrinsicSize: "1000px",
+      }}
     >
       {/* =========================================================
           BACKGROUND
@@ -14,26 +19,29 @@ export default function OfficialLocations() {
 
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-30 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url('/assets/hero.jpg')",
-        }}
-      />
+        className="absolute inset-0 -z-30"
+      >
+        <Image
+          src="/assets/hero.jpg"
+          alt=""
+          fill
+          loading="lazy"
+          sizes="100vw"
+          quality={50}
+          className="object-cover object-center"
+        />
+      </div>
 
-      {/* Soft architectural treatment */}
+      {/* Combined image treatment */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-20 bg-[#07111f]/72"
-      />
-
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 -z-20 bg-gradient-to-b from-[#07111f]/90 via-[#07111f]/55 to-[#07111f]/96"
-      />
-
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 -z-20 bg-gradient-to-r from-[#07111f]/80 via-transparent to-[#07111f]/80"
+        className="
+          absolute inset-0 -z-20
+          bg-[linear-gradient(to_bottom,rgba(7,17,31,0.90),rgba(7,17,31,0.55),rgba(7,17,31,0.96))]
+          before:absolute
+          before:inset-0
+          before:bg-[linear-gradient(to_right,rgba(7,17,31,0.80),rgba(7,17,31,0.30),rgba(7,17,31,0.80))]
+        "
       />
 
       {/* =========================================================
@@ -42,7 +50,7 @@ export default function OfficialLocations() {
 
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 opacity-[0.035]"
+        className="pointer-events-none absolute inset-0 -z-10 opacity-[0.035]"
       >
         <div className="mx-auto h-full max-w-7xl border-x border-white/40" />
 
@@ -61,15 +69,42 @@ export default function OfficialLocations() {
         className="absolute left-0 top-0 h-px w-1/3 bg-gradient-to-r from-amber-300 via-amber-300/50 to-transparent"
       />
 
-      {/* Ambient gold */}
+      {/* =========================================================
+          AMBIENT LIGHT
+      ========================================================== */}
+
       <div
         aria-hidden="true"
-        className="absolute -left-48 top-1/3 -z-10 h-[420px] w-[420px] rounded-full bg-amber-300/[0.035] blur-[130px]"
+        className="
+          pointer-events-none
+          absolute
+          -left-48
+          top-1/3
+          -z-10
+          h-[420px]
+          w-[420px]
+          rounded-full
+          bg-amber-300/[0.035]
+          blur-[90px]
+          sm:blur-[110px]
+        "
       />
 
       <div
         aria-hidden="true"
-        className="absolute -right-48 bottom-0 -z-10 h-[420px] w-[420px] rounded-full bg-amber-300/[0.025] blur-[130px]"
+        className="
+          pointer-events-none
+          absolute
+          -right-48
+          bottom-0
+          -z-10
+          h-[420px]
+          w-[420px]
+          rounded-full
+          bg-amber-300/[0.025]
+          blur-[90px]
+          sm:blur-[110px]
+        "
       />
 
       {/* =========================================================
@@ -82,7 +117,6 @@ export default function OfficialLocations() {
         ======================================================== */}
 
         <header className="mx-auto max-w-3xl text-center">
-          {/* Eyebrow */}
           <div className="inline-flex items-center gap-3">
             <span
               aria-hidden="true"
@@ -122,7 +156,21 @@ export default function OfficialLocations() {
           {contactData.offices.map((office, index) => (
             <article
               key={office.name}
-              className="group relative overflow-hidden rounded-[28px] border border-white/10 bg-[#0a1728]/95 shadow-2xl shadow-black/30 transition-all duration-500 hover:-translate-y-1 hover:border-amber-300/25"
+              className="
+                group
+                relative
+                overflow-hidden
+                rounded-[28px]
+                border
+                border-white/10
+                bg-[#0a1728]/95
+                shadow-2xl
+                shadow-black/30
+                transition-all
+                duration-500
+                hover:-translate-y-1
+                hover:border-amber-300/25
+              "
             >
               {/* Gold top line */}
               <div
@@ -141,7 +189,22 @@ export default function OfficialLocations() {
               {/* Large number */}
               <span
                 aria-hidden="true"
-                className="pointer-events-none absolute right-7 top-5 select-none text-[80px] font-semibold leading-none tracking-[-0.08em] text-white/[0.025] transition-colors duration-500 group-hover:text-amber-300/[0.045] sm:right-9"
+                className="
+                  pointer-events-none
+                  absolute
+                  right-7
+                  top-5
+                  select-none
+                  text-[80px]
+                  font-semibold
+                  leading-none
+                  tracking-[-0.08em]
+                  text-white/[0.025]
+                  transition-colors
+                  duration-500
+                  group-hover:text-amber-300/[0.045]
+                  sm:right-9
+                "
               >
                 0{index + 1}
               </span>
@@ -153,7 +216,10 @@ export default function OfficialLocations() {
 
                 <div className="flex items-start gap-4">
                   <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-amber-300/20 bg-amber-300/10 text-amber-300 transition-all duration-500 group-hover:border-amber-300/35 group-hover:bg-amber-300/[0.14]">
-                    <Building2 className="h-6 w-6" strokeWidth={1.5} />
+                    <Building2
+                      className="h-6 w-6"
+                      strokeWidth={1.5}
+                    />
                   </div>
 
                   <div className="min-w-0 pt-1">
@@ -176,7 +242,10 @@ export default function OfficialLocations() {
 
                 <div className="flex gap-4">
                   <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-amber-300">
-                    <MapPin className="h-4 w-4" strokeWidth={1.7} />
+                    <MapPin
+                      className="h-4 w-4"
+                      strokeWidth={1.7}
+                    />
                   </div>
 
                   <div className="min-w-0">
@@ -203,10 +272,30 @@ export default function OfficialLocations() {
 
                 <a
                   href={`mailto:${contactData.email}`}
-                  className="group/email mt-8 flex items-center gap-4 rounded-2xl border border-white/10 bg-[#050d18] px-4 py-3.5 transition-all duration-300 hover:border-amber-300/25 hover:bg-[#071321] sm:px-5"
+                  className="
+                    group/email
+                    mt-8
+                    flex
+                    items-center
+                    gap-4
+                    rounded-2xl
+                    border
+                    border-white/10
+                    bg-[#050d18]
+                    px-4
+                    py-3.5
+                    transition-all
+                    duration-300
+                    hover:border-amber-300/25
+                    hover:bg-[#071321]
+                    sm:px-5
+                  "
                 >
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-amber-300/15 bg-amber-300/[0.08] text-amber-300">
-                    <Mail className="h-4 w-4" strokeWidth={1.6} />
+                    <Mail
+                      className="h-4 w-4"
+                      strokeWidth={1.6}
+                    />
                   </span>
 
                   <div className="min-w-0 flex-1">
@@ -259,6 +348,7 @@ export default function OfficialLocations() {
             aria-hidden="true"
             className="h-px w-10 bg-amber-300/40 sm:w-16"
           />
+
         </div>
       </div>
     </section>

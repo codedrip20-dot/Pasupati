@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { aboutData } from "@/src/data/about";
 
 export default function AboutExpertise() {
@@ -5,6 +7,10 @@ export default function AboutExpertise() {
     <section
       aria-labelledby="about-expertise-title"
       className="relative isolate overflow-hidden bg-[#07111f]"
+      style={{
+        contentVisibility: "auto",
+        containIntrinsicSize: "1200px",
+      }}
     >
       {/* =========================================================
           BACKGROUND IMAGE
@@ -12,26 +18,26 @@ export default function AboutExpertise() {
 
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-30 bg-cover bg-center"
-        style={{
-          backgroundImage: "url('/assets/gallery/img17.jpeg')",
-        }}
-      />
+        className="absolute inset-0 -z-30"
+      >
+        <Image
+          src="/assets/gallery/img17.jpeg"
+          alt=""
+          fill
+          sizes="100vw"
+          quality={60}
+          loading="lazy"
+          className="object-cover object-center"
+        />
+      </div>
 
-      {/* Image treatment */}
+      {/* Combined image treatment */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-20 bg-[#07111f]/75"
-      />
-
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 -z-20 bg-gradient-to-r from-[#07111f]/98 via-[#07111f]/88 to-[#07111f]/60"
-      />
-
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 -z-20 bg-gradient-to-b from-[#07111f]/95 via-transparent to-[#07111f]"
+        className="
+          absolute inset-0 -z-20
+          bg-[linear-gradient(to_right,rgba(7,17,31,0.98),rgba(7,17,31,0.88),rgba(7,17,31,0.6)),linear-gradient(to_bottom,rgba(7,17,31,0.95),transparent_30%,rgba(7,17,31,1))]
+        "
       />
 
       {/* =========================================================
@@ -40,12 +46,36 @@ export default function AboutExpertise() {
 
       <div
         aria-hidden="true"
-        className="absolute -left-40 top-1/3 -z-10 h-[500px] w-[500px] rounded-full bg-blue-500/[0.07] blur-[130px]"
+        className="
+          pointer-events-none
+          absolute
+          -left-40
+          top-1/3
+          -z-10
+          h-[500px]
+          w-[500px]
+          rounded-full
+          bg-blue-500/[0.07]
+          blur-[95px]
+          sm:blur-[130px]
+        "
       />
 
       <div
         aria-hidden="true"
-        className="absolute -right-40 bottom-1/4 -z-10 h-[450px] w-[450px] rounded-full bg-amber-300/[0.045] blur-[130px]"
+        className="
+          pointer-events-none
+          absolute
+          -right-40
+          bottom-1/4
+          -z-10
+          h-[450px]
+          w-[450px]
+          rounded-full
+          bg-amber-300/[0.045]
+          blur-[95px]
+          sm:blur-[130px]
+        "
       />
 
       {/* =========================================================
@@ -127,18 +157,16 @@ export default function AboutExpertise() {
 
         <div className="mt-16 sm:mt-20 lg:mt-24">
           <div className="mb-5 flex items-end justify-between">
-            <div>
-              <p className="text-[9px] font-semibold uppercase tracking-[0.3em] text-white/35">
-                Areas of expertise
-              </p>
-            </div>
+            <p className="text-[9px] font-semibold uppercase tracking-[0.3em] text-white/35">
+              Areas of expertise
+            </p>
 
             <p className="text-[9px] uppercase tracking-[0.28em] text-white/25">
               {String(aboutData.expertise.length).padStart(2, "0")} Areas
             </p>
           </div>
 
-          <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-[#07111f]/60 shadow-2xl backdrop-blur-xl">
+          <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-[#07111f]/60 shadow-2xl backdrop-blur-[2px] sm:backdrop-blur-xl">
             {aboutData.expertise.map((expertise, index) => {
               const number = String(index + 1).padStart(2, "0");
 
@@ -150,19 +178,19 @@ export default function AboutExpertise() {
                   {/* Hover atmosphere */}
                   <div
                     aria-hidden="true"
-                    className="absolute inset-0 bg-gradient-to-r from-amber-300/[0.07] via-blue-400/[0.025] to-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100"
+                    className="pointer-events-none absolute inset-0 bg-gradient-to-r from-amber-300/[0.07] via-blue-400/[0.025] to-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100"
                   />
 
                   {/* Left active indicator */}
                   <div
                     aria-hidden="true"
-                    className="absolute inset-y-0 left-0 w-[2px] origin-bottom scale-y-0 bg-amber-300 transition-transform duration-500 group-hover:scale-y-100"
+                    className="pointer-events-none absolute inset-y-0 left-0 w-[2px] origin-bottom scale-y-0 bg-amber-300 transition-transform duration-500 group-hover:scale-y-100"
                   />
 
                   {/* Large background number */}
                   <span
                     aria-hidden="true"
-                    className="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 select-none text-[110px] font-semibold leading-none tracking-[-0.09em] text-white/[0.025] transition-all duration-700 group-hover:text-amber-300/[0.055] sm:right-8 sm:text-[150px] lg:text-[190px]"
+                    className="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 select-none text-[110px] font-semibold leading-none tracking-[-0.09em] text-white/[0.025] transition-[color] duration-700 group-hover:text-amber-300/[0.055] sm:right-8 sm:text-[150px] lg:text-[190px]"
                   >
                     {number}
                   </span>
@@ -176,7 +204,7 @@ export default function AboutExpertise() {
 
                       <span
                         aria-hidden="true"
-                        className="h-px w-8 bg-white/15 transition-all duration-500 group-hover:w-14 group-hover:bg-amber-300/60 sm:mt-5 sm:block"
+                        className="h-px w-8 bg-white/15 transition-[width,background-color] duration-500 group-hover:w-14 group-hover:bg-amber-300/60 sm:mt-5 sm:block"
                       />
                     </div>
 
@@ -193,7 +221,7 @@ export default function AboutExpertise() {
 
                     {/* Visual marker */}
                     <div className="hidden sm:block">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/[0.02] text-white/30 transition-all duration-500 group-hover:border-amber-300/40 group-hover:bg-amber-300/10 group-hover:text-amber-300">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/[0.02] text-white/30 transition-[border-color,background-color,color] duration-500 group-hover:border-amber-300/40 group-hover:bg-amber-300/10 group-hover:text-amber-300">
                         <svg
                           aria-hidden="true"
                           viewBox="0 0 16 16"
@@ -253,7 +281,10 @@ export default function AboutExpertise() {
 
         <div className="mt-14 flex flex-col gap-5 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3">
-            <span className="h-2 w-2 rounded-full bg-amber-300 shadow-[0_0_14px_rgba(252,211,77,0.4)]" />
+            <span
+              aria-hidden="true"
+              className="h-2 w-2 rounded-full bg-amber-300 shadow-[0_0_14px_rgba(252,211,77,0.4)]"
+            />
 
             <span className="text-[9px] font-medium uppercase tracking-[0.28em] text-white/40 sm:text-[10px]">
               Pasupati Infrastructure
