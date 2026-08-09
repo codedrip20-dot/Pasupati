@@ -1,21 +1,22 @@
-import Navbar from "@/src/components/layout/Navbar";
+
 import Hero from "@/src/components/home/Hero";
+import HomeAbout from "@/src/components/home/HomeAbout";
+import HomeContact from "@/src/components/home/HomeContact";
+import Reviews from "@/src/components/home/Review";
+import WhyChooseUs from "@/src/components/home/WhyUs";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-(--color-white)">
-      <Navbar />
+   
 
       <Hero />
+      <HomeAbout />
+      <HomeContact />
+      <WhyChooseUs />
+      <Reviews />
 
-      {/* 
-        Homepage sections will be added below the Hero:
-        - About
-        - Services
-        - Featured Projects
-        - Why Pashupati
-        - Contact
-      */}
+  
     </main>
   );
 }

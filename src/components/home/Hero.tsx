@@ -328,14 +328,50 @@ export default function Hero() {
                 responsibility and a vision for generations
                 to come.
               </p>
+<a
+  href="/projects"
+  className="
+    group relative inline-flex w-fit items-center gap-3
+    overflow-hidden rounded-sm
+    border border-[#D9A441]/70
+    bg-[#D9A441]
+    px-6 py-3.5
+    text-sm font-semibold tracking-wide text-[#07111F]
+    shadow-[0_8px_30px_rgba(217,164,65,0.18)]
+    transition-all duration-300
+    hover:-translate-y-0.5
+    hover:bg-[#E8B95A]
+    hover:shadow-[0_12px_35px_rgba(217,164,65,0.28)]
+    active:translate-y-0
+  "
+>
+  <span>Explore Projects</span>
 
-              <Button
-                href="#projects"
-                variant="gold"
-                className="w-fit"
-              >
-                Explore Projects
-              </Button>
+  <span
+    className="
+      flex h-7 w-7 items-center justify-center
+      rounded-full
+      bg-[#07111F]/10
+      transition-transform duration-300
+      group-hover:translate-x-1
+    "
+  >
+    <svg
+      viewBox="0 0 20 20"
+      fill="none"
+      className="h-4 w-4"
+      aria-hidden="true"
+    >
+      <path
+        d="M4 10h11M10 5l5 5-5 5"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  </span>
+</a>
             </motion.div>
           </div>
 
