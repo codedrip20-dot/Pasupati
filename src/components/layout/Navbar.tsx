@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -9,6 +10,7 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 
+import pasupati from "@/public/assets/pasupati.jpeg";
 import Container from "@/src/components/ui/Container";
 
 const navigation = [
@@ -68,18 +70,13 @@ export default function Navbar() {
       return;
     }
 
-    const handleKeyDown = (
-      event: KeyboardEvent
-    ) => {
+    const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         closeMenu();
       }
     };
 
-    document.addEventListener(
-      "keydown",
-      handleKeyDown
-    );
+    document.addEventListener("keydown", handleKeyDown);
 
     return () => {
       document.removeEventListener(
@@ -148,7 +145,7 @@ export default function Navbar() {
             "
           >
             {/* =================================================
-                BRAND
+                DESKTOP BRAND LOGO
             ================================================= */}
 
             <Link
@@ -156,42 +153,31 @@ export default function Navbar() {
               aria-label="Pasupati Infrastructure home"
               className="
                 group
+                flex
                 shrink-0
-                text-white
+                items-center
                 transition-opacity
                 duration-300
-                hover:opacity-80
+                hover:opacity-85
               "
             >
-              <div className="flex items-baseline gap-2">
-                <span
-                  className="
-                    text-[15px]
-                    font-semibold
-                    uppercase
-                    tracking-[0.16em]
-                    sm:text-base
-                    text-white
-                  "
-                >
-                  Pasupati
-                </span>
-
-                <span
-                  className="
-                    hidden
-                    text-[8px]
-                    font-medium
-                    uppercase
-                    tracking-[0.16em]
-                    text-white/50
-                    sm:block
-                    text-white
-                  "
-                >
-                  Infrastructure
-                </span>
-              </div>
+              <Image
+                src={pasupati}
+                alt="Pasupati Infrastructure"
+                width={54}
+                height={54}
+                priority
+                className="
+                  h-11
+                  w-11
+                  rounded-full
+                  object-cover
+                  sm:h-12
+                  sm:w-12
+                  lg:h-[52px]
+                  lg:w-[52px]
+                "
+              />
             </Link>
 
             {/* =================================================
@@ -208,18 +194,14 @@ export default function Navbar() {
               "
             >
               {navigation.map((item) => {
-                const active = isActive(
-                  item.href
-                );
+                const active = isActive(item.href);
 
                 return (
                   <Link
                     key={item.href}
                     href={item.href}
                     aria-current={
-                      active
-                        ? "page"
-                        : undefined
+                      active ? "page" : undefined
                     }
                     className={`
                       group
@@ -232,7 +214,6 @@ export default function Navbar() {
                       text-[12px]
                       font-medium
                       tracking-wide
-                    
                       transition-colors
                       duration-200
                       hover:bg-white/10
@@ -260,7 +241,6 @@ export default function Navbar() {
                         bg-[var(--color-gold)]
                         transition-all
                         duration-200
-                        text-white
                         ${
                           active
                             ? "w-5"
@@ -287,13 +267,11 @@ export default function Navbar() {
                 items-center
                 gap-2
                 rounded-lg
-               
                 px-4
                 text-[10px]
                 font-semibold
                 uppercase
                 tracking-[0.08em]
-               
                 transition-all
                 duration-200
                 hover:brightness-105
@@ -301,7 +279,6 @@ export default function Navbar() {
                 focus-visible:ring-2
                 focus-visible:ring-white/70
                 md:flex
-               
               "
             >
               Get in Touch
@@ -340,7 +317,6 @@ export default function Navbar() {
                 border
                 border-white/20
                 bg-white/[0.05]
-             
                 transition-colors
                 duration-200
                 hover:border-white/40
@@ -399,7 +375,7 @@ export default function Navbar() {
           "
         >
           {/* =================================================
-              MOBILE HEADER
+              MOBILE HEADER + LOGO
           ================================================= */}
 
           <div
@@ -418,31 +394,29 @@ export default function Navbar() {
             <Link
               href="/"
               onClick={closeMenu}
-              className="text-white"
+              aria-label="Pasupati Infrastructure home"
+              className="
+                flex
+                items-center
+                transition-opacity
+                duration-300
+                hover:opacity-85
+              "
             >
-              <span
+              <Image
+                src={pasupati}
+                alt="Pasupati Infrastructure"
+                width={52}
+                height={52}
                 className="
-                  text-[15px]
-                  font-semibold
-                  uppercase
-                  text-white
-                  tracking-[0.16em]
+                  h-11
+                  w-11
+                  rounded-full
+                  object-cover
+                  sm:h-12
+                  sm:w-12
                 "
-              >
-                Pasupati
-              </span>
-
-              <span
-                className="
-                  ml-2
-                  text-[8px]
-                  uppercase
-                  tracking-[0.16em]
-                  text-white/45
-                "
-              >
-                Infrastructure
-              </span>
+              />
             </Link>
 
             <button
@@ -480,89 +454,84 @@ export default function Navbar() {
           ================================================= */}
 
           <div className="mt-10">
-            {navigation.map(
-              (item, index) => {
-                const active =
-                  isActive(item.href);
+            {navigation.map((item, index) => {
+              const active = isActive(item.href);
 
-                return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={closeMenu}
-                    aria-current={
-                      active
-                        ? "page"
-                        : undefined
-                    }
-                    className="
-                      group
-                      flex
-                      items-center
-                      justify-between
-                      border-b
-                      text-white
-                      border-white/10
-                      py-5
-                    "
-                  >
-                    <div className="flex items-center gap-5">
-                      <span
-                        className={`
-                          w-5
-                          text-[9px]
-                          tracking-[0.15em]
-                          ${
-                            active
-                              ? "text-[var(--color-gold)]"
-                              : "text-white/30"
-                          }
-                        `}
-                      >
-                        0{index + 1}
-                      </span>
-
-                      <span
-                        className="
-                          text-[24px]
-                          font-medium
-                          tracking-tight
-                          text-white
-                          transition-transform
-                          duration-200
-                          group-hover:translate-x-1
-                        "
-                      >
-                        {item.label}
-                      </span>
-                    </div>
-
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={closeMenu}
+                  aria-current={
+                    active ? "page" : undefined
+                  }
+                  className="
+                    group
+                    flex
+                    items-center
+                    justify-between
+                    border-b
+                    border-white/10
+                    py-5
+                    text-white
+                  "
+                >
+                  <div className="flex items-center gap-5">
                     <span
                       className={`
-                        flex
-                        h-9
-                        w-9
-                        items-center
-                        justify-center
-                        rounded-full
-                        border
+                        w-5
+                        text-[9px]
+                        tracking-[0.15em]
                         ${
                           active
-                            ? "border-[var(--color-gold)]/50 text-[var(--color-gold)]"
-                            : "border-white/10 text-white/40"
+                            ? "text-[var(--color-gold)]"
+                            : "text-white/30"
                         }
                       `}
                     >
-                      <ArrowUpRight
-                        aria-hidden="true"
-                        size={16}
-                        strokeWidth={1.6}
-                      />
+                      0{index + 1}
                     </span>
-                  </Link>
-                );
-              }
-            )}
+
+                    <span
+                      className="
+                        text-[24px]
+                        font-medium
+                        tracking-tight
+                        text-white
+                        transition-transform
+                        duration-200
+                        group-hover:translate-x-1
+                      "
+                    >
+                      {item.label}
+                    </span>
+                  </div>
+
+                  <span
+                    className={`
+                      flex
+                      h-9
+                      w-9
+                      items-center
+                      justify-center
+                      rounded-full
+                      border
+                      ${
+                        active
+                          ? "border-[var(--color-gold)]/50 text-[var(--color-gold)]"
+                          : "border-white/10 text-white/40"
+                      }
+                    `}
+                  >
+                    <ArrowUpRight
+                      aria-hidden="true"
+                      size={16}
+                      strokeWidth={1.6}
+                    />
+                  </span>
+                </Link>
+              );
+            })}
           </div>
 
           {/* =================================================
@@ -627,9 +596,7 @@ export default function Navbar() {
                 Pasupati Infrastructure
               </span>
 
-              <span>
-                India
-              </span>
+              <span>India</span>
             </div>
           </div>
         </div>
