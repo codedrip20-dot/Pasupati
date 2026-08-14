@@ -111,4 +111,101 @@ export const projectImages: ProjectImage[] = [
     src: "/assets/gallery/img22.jpeg",
     alt: "Pasupati Infrastructure construction work",
   },
+ 
+  {
+    id: "img-24",
+    src: "/assets/gallery/img24.jpeg",
+    alt: "Pasupati Infrastructure construction work",
+  },
+  
+  {
+    id: "img-31",
+    src: "/assets/gallery/img31.jpeg",
+    alt: "Pasupati Infrastructure construction work",
+  },
+  {
+    id: "img-32",
+    src: "/assets/gallery/img32.jpeg",
+    alt: "Pasupati Infrastructure construction work",
+  },
+  {
+    id: "img-33",
+    src: "/assets/gallery/img33.jpeg",
+    alt: "Pasupati Infrastructure construction work",
+  },
+  {
+    id: "img-34",
+    src: "/assets/gallery/img34.jpeg",
+    alt: "Pasupati Infrastructure construction work",
+  },
+  {
+    id: "img-35",
+    src: "/assets/gallery/img35.jpeg",
+    alt: "Pasupati Infrastructure construction work",
+  },
+  {
+    id: "img-36",
+    src: "/assets/gallery/img36.jpeg",
+    alt: "Pasupati Infrastructure construction work",
+  },
+  {
+    id: "img-37",
+    src: "/assets/gallery/img37.jpeg",
+    alt: "Pasupati Infrastructure construction work",
+  },
+  {
+    id: "img-38",
+    src: "/assets/gallery/img38.jpeg",
+    alt: "Pasupati Infrastructure construction work",
+  },
+  {
+    id: "img-39",
+    src: "/assets/gallery/img39.jpeg",
+    alt: "Pasupati Infrastructure construction work",
+  },
+  {
+    id: "img-40",
+    src: "/assets/gallery/img40.jpeg",
+    alt: "Pasupati Infrastructure construction work",
+  },
+  {
+    id: "img-41",
+    src: "/assets/gallery/img41.jpeg",
+    alt: "Pasupati Infrastructure construction work",
+  },
+  {
+    id: "img-42",
+    src: "/assets/gallery/img42.jpeg",
+    alt: "Pasupati Infrastructure construction work",
+  },
+  {
+    id: "img-43",
+    src: "/assets/gallery/img43.jpeg",
+    alt: "Pasupati Infrastructure construction work",
+  },
+  {
+    id: "img-44",
+    src: "/assets/gallery/img44.jpeg",
+    alt: "Pasupati Infrastructure construction work",
+  },
+  {
+    id: "img-45",
+    src: "/assets/gallery/img45.jpeg",
+    alt: "Pasupati Infrastructure construction work",
+  },
+  {
+    id: "img-46",
+    src: "/assets/gallery/img46.jpeg",
+    alt: "Pasupati Infrastructure construction work",
+  },
+  {
+    id: "img-47",
+    src: "/assets/gallery/img47.jpeg",
+    alt: "Pasupati Infrastructure construction work",
+  },
+  {
+    id: "img-48",
+    src: "/assets/gallery/img48.jpeg",
+    alt: "Pasupati Infrastructure construction work",
+  },
 ];
