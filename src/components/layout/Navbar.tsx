@@ -156,6 +156,7 @@ export default function Navbar() {
                 flex
                 shrink-0
                 items-center
+                gap-3
                 transition-opacity
                 duration-300
                 hover:opacity-85
@@ -178,6 +179,19 @@ export default function Navbar() {
                   lg:w-[52px]
                 "
               />
+
+              <span
+                className="
+                  text-sm
+                  font-semibold
+                  tracking-[0.08em]
+                  text-white
+                  sm:text-[15px]
+                  lg:text-base
+                "
+              >
+                Pasupati
+              </span>
             </Link>
 
             {/* =================================================
@@ -398,6 +412,7 @@ export default function Navbar() {
               className="
                 flex
                 items-center
+                gap-3
                 transition-opacity
                 duration-300
                 hover:opacity-85
@@ -417,6 +432,17 @@ export default function Navbar() {
                   sm:w-12
                 "
               />
+
+              <span
+                className="
+                  text-sm
+                  font-semibold
+                  tracking-[0.08em]
+                  text-white
+                "
+              >
+                Pasupati
+              </span>
             </Link>
 
             <button

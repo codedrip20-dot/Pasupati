@@ -208,4 +208,44 @@ export const projectImages: ProjectImage[] = [
     src: "/assets/gallery/img48.jpeg",
     alt: "Pasupati Infrastructure construction work",
   },
+   {
+    id: "img-49",
+    src: "/assets/gallery/img49.jpeg",
+    alt: "Pasupati Infrastructure construction work",
+  },
+  {
+    id: "img-50",
+    src: "/assets/gallery/img50.jpeg",
+    alt: "Pasupati Infrastructure construction work",
+  },
+   {
+    id: "img-51",
+    src: "/assets/gallery/img51.jpeg",
+    alt: "Pasupati Infrastructure construction work",
+  },
+   {
+    id: "img-52",
+    src: "/assets/gallery/img52.jpeg",
+    alt: "Pasupati Infrastructure construction work",
+  },
+   {
+    id: "img-53",
+    src: "/assets/gallery/img52.jpeg",
+    alt: "Pasupati Infrastructure construction work",
+  },
+   {
+    id: "img-54",
+    src: "/assets/gallery/img54.jpeg",
+    alt: "Pasupati Infrastructure construction work",
+  },
+   {
+    id: "img-55",
+    src: "/assets/gallery/img55.jpeg",
+    alt: "Pasupati Infrastructure construction work",
+  },
+   {
+    id: "img-56",
+    src: "/assets/gallery/img56.jpeg",
+    alt: "Pasupati Infrastructure construction work",
+  },
 ];
