@@ -190,7 +190,7 @@ export default function Navbar() {
                   lg:text-base
                 "
               >
-                Pasupati
+                Pasupati Infrastructure
               </span>
             </Link>
 
@@ -441,7 +441,7 @@ export default function Navbar() {
                   text-white
                 "
               >
-                Pasupati
+                Pasupati Infrastructure
               </span>
             </Link>
 
